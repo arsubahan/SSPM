@@ -1,0 +1,239 @@
+﻿body {
+  margin: 0;
+  background-color: #fff;
+}
+
+/* start of public module*/
+.jumbotron{
+            /*margin-left:-10px;
+            margin-top:-10px;*/
+            height:auto;
+            max-width:100%;
+            position:relative;  
+            /*background-color:#557c3e;*/  
+        }
+        .jumbotron img{
+            height:100%;
+            width:auto;
+            max-width:100%;
+        }
+
+.container > div {
+    /* display: block; */
+    vertical-align: top;
+    font-size: 1em;
+    /*margin-left :500px;*/
+}
+
+.text {
+    width: 20%;
+}
+
+
+.container_cat {
+    display: flex;
+}
+
+.fixed {
+    width: 200px;
+}
+
+.flex-item {
+    flex-grow: 1;
+}
+
+div {
+   max-width: 100%;
+    height: auto;
+    background-size: 100% 100%;
+}
+
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+p {
+        width: 100%;
+    height: auto;
+}
+
+
+
+
+.row:after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+[class*="col-"] {
+    float: left;
+    /*padding: 15px;
+    width: 100%;*/
+}
+/*end of public module*/
+
+
+   /*Header area */
+    #header-nav {
+        background-color: #fff; /*bar colorwhen collapse*/
+        border-radius: 0px;
+        border: 0px;
+        /* height: 60px; raz*/
+    }
+
+    #collapsable-nav a { /* Collapsed nav menu text */
+        font-size: 0.9em;
+    }
+
+        #collapsable-nav a span { /* Collapsed nav menu glyph */
+            font-size: 1em;
+            /*margin-right: 5px;*/
+        }
+
+    /*menu box when small*/
+
+    .navbar-header button.navbar-toggle, .navbar-header .icon-bar {
+        border: 1px solid #557c3e;
+    }
+
+    .navbar-header button.navbar-toggle {
+        clear: both;
+        margin-top: 5px;
+    }
+
+    /*Tool bar config*/
+    /* Menu General Styles */
+    .menuBackground {
+        background: center;
+        text-align: left; /* or change the value to left to align left*/
+        float: left;
+    }
+
+    .dropDownMenu a {
+        background-color: #FFF;
+        color: #3F0C1F;
+    }
+
+    .dropDownMenu,
+    .dropDownMenu ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+        .dropDownMenu li {
+            position: relative;
+            color: #3F0C1F; /*raz #063821*/
+        }
+
+        .dropDownMenu a {
+            padding: 10px 20px;
+            display: list-item;
+            text-decoration: none;
+        }
+
+            .dropDownMenu a:hover {
+                background: none;
+                color: black;
+            }
+
+
+        /* Level 1 Drop Down Menu */
+        .dropDownMenu > li {
+            display: inline-block;
+            vertical-align: top;
+            margin-left: -4px; /* solve the 4 pixels spacing between list-items */
+        }
+
+            .dropDownMenu > li:first-child {
+                margin-left: 0;
+            }
+
+            .dropDownMenu > li > a {
+            }
+
+                .dropDownMenu > li > a:hover {
+                }
+
+
+
+            /* Level 2 */
+            .dropDownMenu > li > ul {
+                text-align: left;
+                width: 250px; /* change auto value with 200px if you want a bigger menu */
+                display: none;
+                background: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                z-index: 9999999; /* if you have YouTube iframes, is good to have a bigger z-index so the video can appear above the video */
+            }
+
+            .dropDownMenu > li:hover > ul {
+                display: block;
+                background-color: #0c3410;
+            }
+
+        .dropDownMenu ul li a {
+        }
+
+            .dropDownMenu ul li a:hover {
+            }
+
+        /* Level 3 */
+        .dropDownMenu > li > ul > li > ul {
+            text-align: left;
+            display: none;
+            background: #E7B400;
+            position: absolute;
+            left: 100%;
+            top: 0;
+            z-index: 9999999;
+        }
+
+        .dropDownMenu > li > ul > li:hover > ul {
+            display: block;
+        }
+
+        .dropDownMenu ul ul li {
+        }
+
+            .dropDownMenu ul ul li a {
+            }
+
+                .dropDownMenu ul ul li a:hover {
+                }
+
+    /*ENd of tool bar*/
+
+
+   /*scroll bar for table - raz* /
+   #table-wrapper {
+  position:relative;
+}
+#table-scroll {
+  height:150px;
+  overflow:auto;  
+  margin-top:20px;
+
+}
+#table-wrapper table {
+  width:100%;
+
+}
+#table-wrapper table * {
+  background:yellow;
+  color:black;
+}
+#table-wrapper table thead th .text {
+  position:absolute;   
+  top:-20px;
+  z-index:2;
+  height:20px;
+  width:35%;
+  border:1px solid red;
+}
+/ *end of scroll bar for table*/

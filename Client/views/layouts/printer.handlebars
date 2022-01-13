@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<head>
+    <title>SSPM - Print</title>
+    {{>linkscript}}
+</head>
+
+<body link="#FFFFFF" vlink="#FFFFFF" alink="#FFFFFF" style="font-family: Arial, Helvetica, sans-serif;
+        color:black; font:smaller" topmargin="0" leftmargin="0" ng-app='ermsapp' ng-strict di>
+
+    <div id="main-content" class="container" ng-controller="genpropCtrl">
+        <header>
+            <button class="btn btn-primary" ng-print='' print-element-id="printSection"><i class="fa fa-print"></i>
+                Print
+            </button>
+
+            <a class="btn btn-primary" ng-if="memid == undefined" class="btn btn-default" id="txtbackbut"
+                href="/proposal#?wssmode=Modify&id=\{{enqlist._id}}">
+                <font color="white"> back </font>
+            </a>
+            <a class="btn btn-primary" ng-if="memid != undefined" class="btn btn-default" id="txtbackbut"
+                href="/listtrteammb#?wssmode=ListM&id=\{{tourdet.trcode}}&memid=\{{memid}}">
+                <font color="white"> back </font>
+            </a>
+        </header>
+
+        <div class="row" id='printSection' ng-controller="myfirstcontroller">
+            {{!-- <p>
+                <img src='../../images/home/erms_logo.jpg' style="background-size: 100% 100%;
+                    background-repeat: no-repeat; border-top-left-radius: 15px; border-top-right-radius: 15px; 
+                    border-bottom-left-radius: 05px; border-bottom-right-radius: 0px; width: 700px; height: 138px; ">
+            </p> --}}
+            {{>logo}}
+
+            {{{body}}}
+        </div>
+
+    </div>
+
+    {{>getscript}}
+
+</body>
+
+</html>

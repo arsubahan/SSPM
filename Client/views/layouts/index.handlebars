@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<head>
+    <title>SSPM - Main</title>
+
+    {{>linkscript}}
+
+</head>
+{{>header}}
+<div id="collapsable-nav" class="collapse navbar-collapse"
+    style="padding-left:0px; margin-top : 0px;   font-size: 0.9em">
+    <ul class="nav navbar-nav">
+        <li>
+            <a href="home">
+                Home
+            </a>
+        </li>
+
+        <li>
+            <a href="contact">
+                Contact Us
+            </a>
+        </li>
+        <li>
+            <a href="/clienthome">
+                Client Login
+            </a>
+
+        </li>
+        <li>
+            <a href="/dashboard">
+                Staff Login
+            </a>
+        </li>
+
+        <li role="presentation">
+            <a href="/downloadapp">
+                Download App
+            </a>
+        </li>
+
+    </ul>
+</div>
+
+{{>logo}}
+
+{{#if success}}
+<div class="alert alert-success">{{message}}</div>
+{{/if}}
+{{#if error}}
+<div class="alert alert-danger">{{error}}</div>
+{{/if}}
+</div>
+{{{body}}}
+{{>footer}}
+</div>
+
+{{> getscript}}
+
+</body>
+
+</html>

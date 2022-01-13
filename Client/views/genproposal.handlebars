@@ -1,0 +1,367 @@
+<div class="container" ng-controller="genpropCtrl"> {{!-- controller at genpropcontroller --}}
+    <p ng-controller="myfirstcontroller" align="right" style="margin-top:40px"> \{{wssdate | date:'dd MMMM yyyy'}}</p>
+
+
+    <div align="right" style="width:100%; ">
+        <h1 style="margin-top:200px;width:80%; verticle-align:center">\{{enqlist.proptitle}}</h1>
+        <br><br>
+        <h4>PROPOSAL FOR </h4>
+    </div>
+
+    <div>
+        <h4 style="width:60%; verticle-align:center">\{{enqlist.enqname}}</h4>
+        <h4> \{{enqlist.enqpremises}}</h4>
+        <h4> Tel: \{{enqlist.enqcontactno}}</h4>
+        <h4> Email:- \{{enqlist.enqemail}}
+        </h4>
+    </div>
+    <div class="page-break"></div>
+
+    <div style="text-align: justify;">SCIENCE STAR PEST MANAGEMENT PTE LTD
+        \{{wssdate | date:'dd MMMM yyyy'}}<br><br>
+
+        To : <span ng-if="enqlist.enqconame != undefined || enqlist.enqconame != '' " ng-bind="enqlist.enqconame">
+        </span>
+        <span ng-if="enqlist.enqconame == undefined || enqlist.enqconame == '' " ng-bind="enqlist.enqcontactperson">
+        </span>
+        <br>
+        Address : \{{enqlist.enqaddress}}<br>
+        Person In Charge : \{{enqlist.enqcontactperson}}<br><br>
+        Dear Sir / Ma'am, <br>
+        <h3><u> \{{enqlist.proptitle}}</u></h3><br>
+        Thank you for considering SCIENCE STAR PEST MANAGEMENT PTE LTD Pest Solutions for your general pest control needs.
+        <br><br>
+        We are pleased to present to you our recommended Vector Control Management solution to protect your property
+        against general pest infestations.<br><br>
+
+        Please see our recommendations for a Vector Control Maintenance Program solution for your consideration.
+        <br><br>
+        Our fully trained and certified Technicians will provide quality, safe and effective pest control services to
+        you. Please do not hesitate to contact our sales representative for further discussions.
+        <br><br>
+        As a pest management specialist, we look forward to provide our expertise and advice on pest management to you.
+
+        Thank you.<br><br>
+
+        Yours faithfully<br><br><br><br>
+
+
+        Hafeez Salleh
+
+
+    </div>
+    <div class="page-break"></div>
+
+
+    <div style="text-align: justify;">
+        <h4>A. SCIENCE STAR PEST MANAGEMENT PTE LTD Solutions</h4>
+
+        We offer a Step-by-Step process for determination and treatment / control of Pest at your property, be it
+        commercial or residential. SCIENCE STAR PEST MANAGEMENT PTE LTD only uses material certified SAFE and of the highest
+        quality to ensure solutions
+        recommended are safe and non-toxic. Through the experience of our Staff of over 15 years, SCIENCE STAR PEST
+        MANAGEMENT undertakes a
+        comprehensive assessment process to locate, treat, follow-up and finally ensure elimination of the infestation
+        problem.<br><br>
+
+        While we may provide General pest Control service, our staff are trained to identify early warning signs and
+        report the same as quickly as possible to enable you, the owners/management of your property to address the
+        issues in a timely fashion and save unnecessary costs by preventive action to avoid the situation developing
+        into a major infestation.<br><br>
+
+        <div ng-repeat="pestitm in pestype track by $index" style="text-align: justify;">
+            <h5>
+                <p style="background-color: blanchedalmond;"><b>
+                        \{{pestype[$index].pestdesc}}</b></p>
+                <p>
+            </h5>
+
+            <ul>
+                <li ng-if="solitm.solpestcd == pestitm.pestcd" ng-repeat="solitm in solutionlist track by $index">
+                    <p ng-bind-html='solitm.soldesc' style="margin-top:10px;  margin-bottom : 0px"></p>
+
+                </li>
+            </ul>
+        </div>
+
+        <div style="text-align: justify;">
+            <h4> B. Service Report </h4>
+            Our team of technicians will provide a service report after each inspection or treatment. The report
+            comprises information pertaining to the stated-above pest activities and status of infestation. The service
+            report will be written/emailed to the person in charge.
+
+            <h4>C. Service Warranty </h4>
+            If the specific service indicated in the service guarantee form is not duly performed by SCIENCE STAR PEST
+            MANAGEMENT , we will offer a rebate of up to 100% depending on the number of services not carried out.
+            Customers must allow SCIENCE STAR PEST MANAGEMENT PTE LTD to carry out the specific services during the contract
+            period. Any refusal for the service to be carried out will void the service warranty. (Refer to SCIENCE STAR
+            PEST MANAGEMENT and Conditions)
+        </div>
+
+        <div class="page-break"></div>
+
+        <div style="text-align: justify;">
+
+            <h4> COMMITMENT TO SERVE YOU </h4>
+            The proposed program encompasses the following:
+            <ul>
+                <li>Inspection for signs of above stated pest infestations in and around the premises.</li>
+                <li>Installation of bait stations and monitoring stations around the premises.</li>
+                <li>Residual spraying will be done around high-risk areas if necessary.</li>
+            </ul>
+            Ultimately what we are delivering to you is:
+            Our commitment to provide service by certified professionals and a service quality which: -
+            <ul>
+                <li>Addresses the situation and provides a solution that meets with your requirements.</li>
+                <li>Staff who are service orientated and knowledgeable in the Pest Control Field</li>
+                <li>Work with you as an extension of your TEAM</li>
+                <li>Result orientated service</li>
+            </ul>
+
+            <h4> <i> Our Safe & Certified Chemicals</i></h4>
+            All products used by SCIENCE STAR PEST MANAGEMENT PTE LTD Pte Ltd are certified and approved by <b>NEA</b>
+
+        </div>
+
+        <!-- add the product infomation -->
+        <div ng-repeat="chemitm in chemuse track by $index" style="text-align: justify;">
+            <h5>
+                <p ng-repeat="pestitm in pestype track by $index" style="background-color: blanchedalmond;">
+                    {{!-- <span ng-if = "chemitm."   \{{servicearr[$index]}} - \{{$index}}</b></p> --}}
+                <h5> {{!-- ng-if="pestitm.pestcd = chempest[$index]"> --}}
+                    <b> <u> \{{pestype[$index].pestdesc}} : \{{chemitm.chempname}}</u></b>
+                </h5>
+                <p>Product Profile:</p>
+                <p>Active Ingredient : \{{chemitm.chempacting}}</p>
+                <p ng-bind-html="chemitm.chempdesc" <p>
+            </h5>
+        </div>
+        <div class="page-break"></div>
+        <h4>
+            <u>
+                QUOTATION
+            </u>
+        </h4>
+
+        A comprehensive coverage solution that will provide adequate prevention and protection for your
+        premise against general pest.
+
+
+        <table border="1">
+            <tr>
+                <th width="30px"> </th>
+                <th width="280px">
+                    Description of Service
+                </th>
+                <th width="100px">
+                    Frequency
+                </th>
+                <th width="100px">
+                    Amount
+                </th>
+            </tr>
+            <tr>
+                <td>
+
+                </td>
+                <td>
+                    <b> \{{enqlist.proptitle}}</b><br>
+                    \{{enqlist.enqaddress}}
+
+                </td>
+                <td border="0">
+
+                </td>
+                <td border="0">
+
+                </td>
+            </tr>
+            <tr ng-repeat="quoteitm in quolist  | orderBy : 'quoseq' ">
+                <td align="center" style="vertical-align: top;">
+                    \{{quoteitm.quoseq }}
+                </td>
+                <td>
+                    <span ng-bind-html="quoteitm.quodesc"></span>
+                </td>
+                <td ng-if="quoteitm.quofrequency == undefined ">
+                    &nbsp;
+                </td>
+                <td ng-if="quoteitm.quofrequency == durdet.durcd" ng-repeat="durdet in durlist track by $index">
+                    <span ng-bind="durdet.durdesc"></span>
+                </td>
+                <td>
+                    \{{quoteitm.quoamount | currency}}
+                </td>
+
+            </tr>
+            <tr>
+                <td colspan="4" border="0">
+                    <h5><u> Payment SCIENCE STAR PEST MANAGEMENT PTE LTD:</u></h5>
+                    <ul>
+                        <li>
+                            Proposal is valid for (1) month from the date of proposal issuance.
+                        </li>
+                        <li>
+                            Payment is due upon the issue of the invoice of the company.
+                        </li>
+                        <li>
+                            Payment must be made by cash or crossed cheque payable to SCIENCE STAR PEST MANAGEMENT PTE LTD)
+                        </li>
+                        <li>
+                            Payment made using cheque must include the invoice number and/or client's name.
+
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+
+        <div class="page-break"></div>
+
+        <div>
+            <h4>Compliance</h4>
+            <ol>
+                <li>
+                    In order to avoid inconvenience and to ensure the maintenance is carried out timely, a notification
+                    period 3 days has to be provided by calling SCIENCE STAR PEST MANAGEMENT PTE LTD at 69690364 on Monday to
+                    Friday, between 9am to 6pm. </li>
+
+                <li>
+                    SCIENCE STAR PEST MANAGEMENT PTE LTD will not be held responsible for liable for any damages caused during
+                    our course of work.
+
+                    <h5><b><u> SCIENCE STAR PEST MANAGEMENT PTE LTD & Conditions</u></b> </h5>
+                    The following SCIENCE STAR PEST MANAGEMENT PTE LTD and conditions are applicable to all services provided by
+                    SCIENCE STAR PEST MANAGEMENT PTE LTD
+                    <ol class="lower-roman">
+                        <li>
+                            This Agreement is a contract between the Customer and SCIENCE STAR PEST MANAGEMENT PTE LTD only. It
+                            shall be governed by and construed in all respects in accordance with laws of the Republic
+                            of Singapore and each party hereby submits to the exclusive jurisdiction of the courts in
+                            Singapore
+                        </li>
+                        <li>
+                            This Agreement constitutes the entire agreement between the Client and SCIENCE STAR PEST
+                            MANAGEMENT. No variation, extension, exclusion or cancellation of this Agreement shall be
+                            binding (unless terminated in accordance with these SCIENCE STAR PEST MANAGEMENT PTE LTD) unless it
+                            is confirmed in writing by SCIENCE STAR PEST MANAGEMENT PTE LTD.
+                        </li>
+                        <li>
+                            SCIENCE STAR PEST MANAGEMENT PTE LTD will exercise all reasonable skill, care and diligence in the
+                            discharge of the duties hereby covenanted and shall attend to all re-infestation calls (RIC)
+                            of the said pests without incurring any additional charges. </li>
+                        <li>
+                            The Client shall make freely available access to all parts of the said premise during the
+                            time and for the purpose of any inspection or treatment by SCIENCE STAR PEST MANAGEMENT PTE LTD.
+                        </li>
+                        <li>
+                            All treatment or services due under this Agreement must be utilized by the client within the
+                            term of the contract, failing which shall be deemed spent or forfeited to the Contract.
+                            SCIENCE STAR PEST MANAGEMENT PTE LTD will not entertain any request for performance of such spent of
+                            forfeited treatments or services and there shall be no extension of the original contract
+                            period to accommodate such request.
+
+                        </li>
+                        <li>
+                            If default shall be made by Client in the payment of any fees or charges agreed to be paid
+                            by him/her, this Agreement shall there upon cease without affecting the right of SCIENCE
+                            STAR PEST MANAGEMENT to recover from the Client any money due to SCIENCE STAR PEST
+                            MANAGEMENT from the date of such determination or to recover damages in respect of any
+                            breach by the Client of the SCIENCE STAR PEST MANAGEMENT PTE LTD in the Agreement.
+
+                        </li>
+                        <li>
+                            This Agreement does not cover any consequential damages/ losses/ summons/ repairs and
+                            replacement as a result of the activities including re-infestations of the said pests.
+                        </li>
+                        <li>
+                            Either Client or SCIENCE STAR PEST MANAGEMENT PTE LTD may terminate this Agreement by giving One (1)
+                            month notice in writing to the other party, failing which SCIENCE STAR PEST MANAGEMENT PTE LTD
+                            reserves the right to charge a termination fee equivalent to one (1) months of the monthly
+                            service value of the agreement for that year For Lump Sum payment there will be no refund to
+                            the client should the termination request were made by the client.
+
+                        </li>
+
+                    </ol>
+
+                </li>
+
+            </ol>
+
+        </div>
+        <div class="page-break"></div>
+        <div>
+            <h4><b><u> Contract Acceptance</u></b></h4>
+            We trust that you had read the enclosed SCIENCE STAR PEST MANAGEMENT PTE LTD of the proposal and are acceptable to
+            you. If all is in order, kindly endorse on it to confirm your acceptance. Once again, thank you for choosing
+            SCIENCE STAR PEST MANAGEMENT PTE LTD as your preferred 
+
+            \{{enqlist.proptitle}}
+            <br>
+            <br>
+            <br>
+            __________________________________<br>
+            ssd HAFEEZ SALLEH<br>
+            Director<br>
+            SCIENCE STAR PEST MANAGEMENT PTE LTD<br>
+            _________________________________________________________________________________<br>
+            <div>
+                I/We hereby accept the above proposal and the stipulated SCIENCE STAR PEST MANAGEMENT PTE LTD and conditions.
+                <br>
+                Premise: \{{enqlist.enqaddress}}<br>
+                Type of Programme: \{{enqlist.proptitle}}<br>
+                Billing Frequency: Monthly<br>
+                Billing Address: \{{enqlist.proptitle}}<br>
+                Contract Type : Annually
+                <br><br><br><br>
+
+                <table>
+                    <tr>
+                        <td width="250">_____________________________</td>
+                        <td width="150">&nbsp;</td>
+                        <td width="250">_____________________________</td>
+                    </tr>
+                    <tr>
+                        <td>Signed for and on behalf for</td>
+                        <td></td>
+                        <td>Signed for and on behalf for</td>
+                    </tr>
+                    <tr>
+                        <td>Company Name :</td>
+                        <td></td>
+                        <td>Name :</td>
+                    </tr>
+                    <tr>
+                        <td>Designation :</td>
+                        <td></td>
+                        <td>Designation :</td>
+                    </tr>
+                    <tr>
+                        <td>Date :</td>
+                        <td></td>
+                        <td>Date :</td>
+                    </tr>
+
+
+                </table>
+
+
+
+
+
+
+            </div>
+
+
+
+
+
+
+
+
+
+        </div>
+
+
+    </div>

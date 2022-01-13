@@ -1,0 +1,105 @@
+<div class="container" ng-controller="dashCtrl">
+
+    <h4>Maintenance of Schedule File - \{{usname}} (\{{uslogin}}) </h4>
+
+    {{!-- <flash-message duration="5000"></flash-message> --}}
+
+    {{>toaster}}
+    <div id="myDIV" ng-controller="projectCtrl">
+        <dir-pagination-controls max-size="10" direction-links="true" boundary-links="true" style="margin-left :85px">
+        </dir-pagination-controls>
+
+        <table class="table" style="font-size:8pt" border="0">
+            <thead>
+                <tr>
+                    {{!-- <th width='80px'>Transaction No.:</th> --}}
+                    <th width='100px'>Project Code</th>
+                    <th width='250px'>Project Title</th>
+                    <th width='250px'>Project Co Name</th>
+                    <th width='250px'>Contact Person</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    {{!-- <td><input class="form-control" ng-model="txtsearch.schtrnsno"></td> --}}
+                    <td><input class="form-control" ng-model="txtsearch.projtrnsno "></td>
+                    <td><input class="form-control" ng-model="txtsearch.proptitle "></td>
+                    <td><input class="form-control" ng-model="txtsearch.enqconame "></td>
+                    <td><input class="form-control" ng-model="txtsearch.enqname "></td>
+
+                    <td><button class="btn btn-primary" ng-click="schsearchdet(txtsearch)">Search</button></td>
+                </tr>
+
+
+                <tr dir-paginate-start="schrc in enqlist   | orderBy:'schpestcd' | itemsPerPage:5">
+                    <td width='280px' colspan="3" style="background-color:rgb(248, 239, 198) ;">
+                        {{!-- ng-if="enqlist[$index] . projtrnsno != enqlist[$index -1].schpestcd"> --}}
+                        {{!-- <b> \{{enqlist[$index].projtrnsno | uppercase}} - \{{schrc.pestdet[0].proptitle}} </b> --}}
+                        <b> \{{schrc.enqpremises | uppercase}}  -
+                            <span ng-if="schrc.enqpropstatus == 'A'">Active</span>
+                            <br>
+                            <span ng-if="schrc.enqconame != '' && schrc.enqconame != undefined">\{{schrc.enqconame}} &nbsp;&nbsp; - &nbsp;&nbsp;</span>
+                            \{{schrc.enqcontactperson}}
+                        </b>
+                    </td>
+                    <td width="80px"><button class="btn btn-success" ng-click="Scheadd(schrc._id)">
+                            Add Schedule
+                        </button>
+                    </td>
+                    <td width="80px"><button class="btn btn-info" ng-click="Scheclose(schrc._id)">
+                            Close Project
+                        </button>
+                    </td>
+                </tr>
+
+                <tr dir-paginate-end ng-repeat="schedet in schedulelist"
+                    style="background-color:transparent; cursor: pointer, z-index: 1; ">
+                    <td ng-if="schedet.schprojno ==  schrc.projtrnsno" colspan="5" width="100px">
+                        {{!-- \{{schedet.schprojno}} == \{{schrc.projtrnsno}} - \{{$index}} --}}
+                        <table>
+                            <tr>
+                                <td>
+
+                                    \{{schedet.schdatest | date  : 'd MMM yyyy'}}
+                                </td>
+                                <td ng-if="schedet.schprojno ==  schrc.projtrnsno" width="100px">
+                                    &nbsp; &nbsp; &nbsp; &nbsp;
+                                    \{{schedet.schcompldate | date : 'd MMM yyyy'}}
+                                </td>
+                                <td ng-if="schedet.schprojno ==  schrc.projtrnsno" width="250px"
+                                    style="background-color: transparent">
+                                    \{{schedet.schdesc}}
+                                </td>
+                                {{!-- <td width= "180px">
+                                    <p ng-repeat="schperson in staffselname"> \{{schperson}}</p>
+
+                                </td> --}}
+                                <td>&nbsp;</td>
+
+                                <td colspan="2" ng-if="wssmode == 'Maintain' && schedet.schprojno ==  schrc.projtrnsno">
+                                    <button class="btn btn-danger" ng-click="schdel(schedet._id)">
+                                        Delete
+                                    </button>
+                                </td>
+                                <td ng-if="wssmode == 'Maintain' &&  schedet.schprojno ==  schrc.projtrnsno"
+                                    width="50px">
+                                    <button class="btn btn-warning" ng-click="schedit(schedet._id)">
+                                        Edit
+                                    </button>
+                                </td>
+                                <td ng-if="wssmode == 'Update' &&  schedet.schprojno ==  schrc.projtrnsno" width="50px">
+                                    <button class="btn btn-warning" ng-click="schupdate(schedet._id)">
+                                        Job update
+                                    </button>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <dir-pagination-controls max-size="5" direction-links="true" boundary-links="true" style="margin-left :85px">
+        </dir-pagination-controls>
+    </div>
+</div>

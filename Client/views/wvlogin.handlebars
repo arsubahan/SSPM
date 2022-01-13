@@ -1,0 +1,35 @@
+<div id="main-content" class="container" ng-controller="adminloginCtrl">
+    <h2 class="page-header">Webview Staff Login</h2>
+    <form method="post" action="/wvlogin">
+
+        <div class="form-group">
+            <div class="input-group input-group-lg">
+                <span class="input-group-addon">
+                    <i class="texct-muted glyphicon glyphicon-user"></i>
+                </span>
+
+                {{!-- <label>Username</label> --}}
+                <input type="text" class="form-control" name="UsStaffcd" placeholder="Login Id">
+            </div>
+        </div>
+        <div class="form-group">
+            {{!-- <label>Password</label> --}}
+            <div class="input-group input-group-lg">
+                <span class="input-group-addon">
+                    <i class="texct-muted glyphicon glyphicon-asterisk"></i>
+                </span>
+
+                <input type="password" class="form-control" name="UsPassword" placeholder="password">
+            </div>
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+    <p style="margin-top: -35px; margin-left: 80px ">
+        <a href="/forgot#?wsstype=Admin">
+            <button class="btn btn-default">Forgot Password</button>
+        </a>
+    </p>
+
+
+
+</div>

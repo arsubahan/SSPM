@@ -1,0 +1,7 @@
+<div>
+    <toaster-container toaster-options="{'time-out': 3000, 'close-button':true}">
+    </toaster-container>
+</div>
+<div ng-if='errors' ng-repeat='msg in errmsg' class="alert-danger" style=" font-size :small; color:#5c0505">
+    \{{msg.msg}}
+</div>

@@ -1,0 +1,51 @@
+<div id="main-content" class="container" ng-controller='dashCtrl'>
+
+    <div style="background-color: black; color:blanchedalmond; margin-top:-10px; margin-left:-15px; width:860px">
+        <h5 align="center"> Welcome to webview dashboard - \{{usname}} (\{{uslogin}}) \{{uslevel[1]}} </h5>
+    </div>
+    {{!-- menu for Codes File Maitenance --}}
+    <div class="row col-lg-3 col-md-6 col-sm-12">
+        {{!--  <section align='center' style="background-color:transparent; padding :0px; width:250px; "> --}}
+        <p style="background-color: firebrick; color:floralwhite; ">Codes File Maitenance</p>
+        <img style="margin-top:-10px; padding:0em; height:97px" src="images/dashboard/download1.jpg"
+            alt="Codes File Maitenance" class="collapsible" />
+
+        <div align='left' class="content" width="250px" height="300px" style=" font-size :1em; color:white">
+            <ul>
+                <li role="presentation">
+                    <a href="/wvdispschedule#?wssmode=wv&stcode=\{{uslogin}}">
+                        display schedule
+                    </a>
+                </li>
+
+
+                <li role="presentation">
+                    <a href="/wvdispschedule#?wssmode=Update">
+                        Update Job
+                    </a>
+                </li>
+
+
+            </ul>
+            <br><br><br>
+        </div>
+        {{!--         </section> --}}
+    </div>
+</div>
+
+<script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+            }
+        });
+    }
+</script>

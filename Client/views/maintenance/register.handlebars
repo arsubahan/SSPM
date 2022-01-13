@@ -1,0 +1,137 @@
+<div id="main-content" class="container" ng-controller="adminCtrl">
+
+  {{!-- <div ng-if="wssmode == 'Add'">
+    <h2 class="page-header"><span ng-bind='wssmode'></span> of Staff File</h2>
+  </div> --}}
+  <div>
+    <h2 class="page-header"><span ng-bind='wssmode'></span> of Staff File</h2>
+  </div>
+
+  <form name='adminfrm' style="width: 100%; background-color:bisque">
+    {{>toaster}}
+    {{!-- <div ng-if='success' ng-repeat='msg in errmsg' class="alert-success" style=" font-size :small color:#123a16">
+      {{msg.msg}}
+      <span ng-bind='msg.msg'></span>
+    </div>
+
+    <div ng-if='errors' ng-repeat='msg in errmsg' class="alert-danger" style=" font-size :small; color:#5c0505">
+      {{msg.msg}}
+      <span ng-bind='msg.msg'></span>
+    </div> --}}
+
+    <table border="1" style="width:100%">
+      <tr>
+        <td>
+          <label>Staff ID</label>
+        </td>
+        <td>
+          <input type="text" class="form-control" placeholder="Login Id" ng-disabled="isDisabled" name="UsStaffcd"
+            ng-model="staffdet.UsStaffcd">
+        </td>
+        <td>
+          <label>Name</label>
+        </td>
+        <td>
+          <input type="text" class="form-control" style="text-transform: uppercase;" placeholder="name"
+            name="UsStaffname" ng-model="staffdet.UsStaffname">
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <label>Address</label>
+        </td>
+        <td colspan="3">
+          <textarea class="form-control"  placeholder="name" name="USStaffAddress"
+            ng-model="staffdet.USStaffAddress">
+        </textarea>
+        </td>
+
+      </tr>
+
+      <tr>
+        <td>
+          <label>Telephone</label>
+        </td>
+        <td>
+          <input type="text" class="form-control" placeholder="Mobile Number" name="UsHphone"
+            ng-model="staffdet.UsHphone">
+
+        </td>
+        <td>
+          <label>Email</label>
+        </td>
+        <td>
+          <input type="email" class="form-control" placeholder="Email Address" name="Usemail"
+            ng-model="staffdet.Usemail">
+        </td>
+
+      </tr>
+
+      <tr>
+        <td>
+          <label> Level :</label>
+        </td>
+        <td>
+          <select ng-model="staffdet.Uslevel " name='Uslevel'>
+            <option>0 - master</option>
+            <option>1 - make changes</option>
+            <option>2 - list and view</option>
+
+          </select>
+        </td>
+
+
+        <td>
+          Designation
+        </td>
+        <td>
+          <select ng-model="staffdet.UsDesignation " name='UsDesignation'
+            ng-options="opt.occupationcd  as opt.occupationDesc for opt in occlist ">
+            <option>--</option>
+          </select>
+        </td>
+      </tr>
+
+      <tr ng-if="wssmode == 'Add' ">
+        <td>
+          <label>Password</label>
+        </td>
+        <td>
+          <input type="password" class="form-control" placeholder="Password" name="UsPassword"
+            ng-model="staffdet.UsPassword">
+        </td>
+
+        <td>
+          <label>Confirm Password</label>
+        </td>
+        <td colspan="3">
+          <input type="password" class="form-control" placeholder="Password" name="password2" ng-model="temp.password2">
+        </td>
+
+      </tr>
+
+
+    </table>
+
+
+    <div>
+      {{!-- button type="submit" class="btn btn-default" ng-click="submitdat(newsdet,txtpdffile)">Submit</button> --}}
+      <button type="submit" class="btn btn-default" ng-click="submitdat({{password2}})"><span ng-bind='wssmode'>
+          \{{password2}}</span></button>
+      <a ng-if="wssmode != 'Add'" class="btn btn-default" id="txtbackbut" href="/dispstaff#?wssmode=Maintain">
+        back
+      </a>
+      <a ng-if="wssmode == 'Add'" class="btn btn-default" id="txtbackbut" href="/dashboard">
+        back
+
+
+
+
+
+
+
+      </a>
+
+    </div>
+  </form>

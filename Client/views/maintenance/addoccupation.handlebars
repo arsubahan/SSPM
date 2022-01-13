@@ -1,0 +1,39 @@
+<div class="container" ng-controller="occCtrl">
+    <div align='center' style='margin-top:-30px'>
+        <h3 class="page-header"><span ng-bind='wssmode'></span> of Occupation Codes File</h3>
+    </div>
+
+    <form name="fldtyfrm" style=" font-size :smaller;padding-left:50px; margin-top:10px" method="get">
+       {{>toaster}}
+
+        <div class="form-control" class="col-md-6">
+            <label>Ocupation Code:* :</label>
+            <input name="occcd" style="text-transform: uppercase;" ng-model="occdet.occupationcd" ng-disabled="isDisabled"
+                type="text" />
+
+        </div>
+
+
+        <div class="form-control" class="col-md-6">
+            <label>  Description:* : </label>
+            <input name="occtype" ng-model="occdet.occupationDesc" placeholder="Please Enter occ Description"
+                type="text" />
+
+        </div>
+
+        
+        <div>
+
+            <button type="submit" class="btn btn-default" ng-click="submitdat()"><span
+                    ng-bind='wssmode'></span></button>
+            <a ng-if="wssmode != 'Add'" class="btn btn-default" id="txtbackbut" href="/dispoccupation#?wssmode=Maintain">
+                back
+            </a>
+            <a ng-if="wssmode == 'Add'" class="btn btn-default" id="txtbackbut" href="/dashboard">
+                back
+            </a>
+
+        </div>
+
+    </form>
+</div>

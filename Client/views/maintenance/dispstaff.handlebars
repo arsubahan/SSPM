@@ -1,0 +1,45 @@
+<div class="container" ng-controller="adminCtrl">
+    <h1>Maintenance of Staff File - <b><span ng-bind='usname'></span></b></h1>
+    
+    {{!-- <flash-message duration="5000"></flash-message> --}}
+    <div id="myDIV">
+        <dir-pagination-controls max-size="5" direction-links="true" boundary-links="true" style="margin-left :85px">
+        </dir-pagination-controls>
+
+
+
+        <table class="table" style="font-size:8pt">
+            <thead>
+                <tr>
+                    <th width='80px'>Staff  Code:</th>
+                    <th width='250px'>Staff Name</th>
+                    <th width='250px'>Staff Email</th>
+                    <th>Action</th>
+                    <th>&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input class="form-control" ng-model="txtsearch.UsStaffcd"></td>
+                    <td><input class="form-control" ng-model="txtsearch.UsStaffname "></td>
+                   <td><input class="form-control" ng-model="txtsearch.Usemail "></td>
+                    <td><button class="btn btn-primary" ng-click="searchdet(txtsearch)">Search</button></td>
+                </tr>
+
+
+                <tr dir-paginate="staffdet in stafflist  | orderBy:'UsStaffname' | itemsPerPage:5">
+                    <td width='80px'>
+                        <span ng-bind="staffdet.UsStaffcd | uppercase" ng-bind="staffdet.UsStaffcd | uppercase"></span>
+                    </td>
+                    <td width="250px" ng-bind="staffdet.UsStaffname "></td>
+                   <td width="250px" ng-bind="staffdet.Usemail "></td>
+                    <td width="50px"><button class="btn btn-danger" ng-click="del(staffdet._id)">Delete</button></td>
+                    <td width="50px"><button class="btn btn-warning" ng-click="edit(staffdet._id)">Edit</button></td>
+                </tr>
+            </tbody>
+        </table>
+        <dir-pagination-controls max-size="5" direction-links="true" boundary-links="true" style="margin-left :85px">
+        </dir-pagination-controls>
+    </div>
+</div>
+

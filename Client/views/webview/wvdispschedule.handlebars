@@ -1,0 +1,55 @@
+<div class="container" ng-controller="dashCtrl" style="font-size: inherit;">
+
+    <h4>Maintenance of Schedule File - \{{usname}} (\{{uslogin}}) </h4>
+
+    {{!-- <flash-message duration="5000"></flash-message> --}}
+    <div id="myDIV" ng-controller="projectCtrl">
+        <dir-pagination-controls max-size="2" direction-links="true" boundary-links="true" style="margin-left :0px">
+        </dir-pagination-controls>
+
+
+        <div dir-paginate-start="schrc in schlist  | itemsPerPage:5" style="background-color: blanchedalmond;">
+            <div ng-if="schlist[$index].schprojno != schlist[$index-1].schprojno">
+                <b> \{{schrc.enqdet[0].enqcontactperson| uppercase}} - \{{schrc.enqdet[0].proptitle}}
+                    \{{schrc.enqdet[0].nqconame}} &nbsp;&nbsp; - &nbsp;&nbsp; \{{schrc.enqdet[0].enqcontactperson}}<br>
+                    premises : \{{schrc.enqdet[0].enqpremises}}
+                </b>
+            </div>
+            {{!-- \{{schlist[$index].schprojno}} - \{{schlist[$index-1].schprojno}} --}}
+        </div>
+
+        <div dir-paginate-end style="background-color:transparent; cursor: pointer, z-index: 1; ">
+            <table border="0" style="font-size: .75em; width:100%">
+                <tr>
+                    <td>
+                        <label> Start Date : </label> \{{schrc.schdatest | date  : 'd MMM yyyy'}}
+                    </td>
+                    <td>
+                        <label>End date </label>
+                        :\{{schrc.schcompldate | date  : 'd MMM yyyy'}}
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: justify;">
+                        \{{schrc.schdesc}}
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2">
+                        <button class="w3-button w3-small w3-teal" ng-click="schupdate(schrc._id,'wv')">
+                            Job update
+                        </button>
+                        <hr style="border-color: navy;">
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <hr>
+
+
+    </div>
+    <dir-pagination-controls max-size="5" direction-links="true" boundary-links="true" style="margin-left :85px">
+    </dir-pagination-controls>
+</div>
+</div>

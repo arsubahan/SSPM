@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<head>
+    <title>SSPM - Main</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    {{>linkscript}}
+
+</head>
+
+<body link="#FFFFFF" vlink="#FFFFFF" alink="#FFFFFF" style="font-family: Arial, Helvetica, sans-serif;
+        color:black; font:8px" topmargin="0" leftmargin="0" ng-app='ermsapp' ng-strict di>
+    <div id="main-content" class="container" ng-controller='myfirstcontroller'>
+
+        {{>logo}}
+
+        {{!-- <div class="row">
+            <div class=" col-sm-8">
+                SSPM – Singapore – Vector Control
+            </div>
+            <div class="col-sm-4">
+                <img src='../../images/home/ermslogo.png'
+                    style="width:75px; height:28px;  background-size: 100% 100%; ">
+                <b>
+                    <h6 style="margin-top: -5px; margin-left:30px">NEA200823534G</h6>
+                </b></h2>
+            </div>
+        </div> --}}
+
+        {{{body}}}
+        {{>footer}}
+    </div>
+    {{> getscript}}
+
+</body>
+
+</html>

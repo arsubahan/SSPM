@@ -1,0 +1,266 @@
+<div id="main-content" class="container" ng-controller='dashCtrl'>
+
+    <div style="background-color: black; color:blanchedalmond; margin-top:-10px; margin-left:-15px; width:860px">
+        <h5 align="center"> Welcome to dashboard - \{{usname}} (\{{uslogin}}) \{{uslevel[1]}} </h5>
+    </div>
+    {{!-- menu for Codes File Maitenance --}}
+    <div class="row col-lg-3 col-md-6 col-sm-12">
+        {{!--  <section align='center' style="background-color:transparent; padding :0px; width:250px; "> --}}
+        <p style="background-color: firebrick; color:floralwhite; ">Codes File Maitenance</p>
+        <img style="margin-top:-10px; padding:0em; height:97px" src="images/dashboard/download1.jpg"
+            alt="Codes File Maitenance" class="collapsible" />
+
+        <div align='left' class="content" width="250px" height="300px" style=" font-size :1em; color:rgb(31, 4, 4)">
+            <ul>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">pest Codes<span class="caret"></span></a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li role="presentation">
+                            <a href="/addpestcode#?wssmode=Add">
+                                Add Pest Codes
+                            </a> </li>
+                        <li role="presentation">
+                            <a href="/disppestcode#?wssmode=Maintain">
+                                Maintain pest Codes
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">pest solution Codes<span class="caret"></span></a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li role="presentation">
+                            <a href="/addsolution#?wssmode=Add">
+                                Add Solution Codes
+                            </a> </li>
+                        <li role="presentation">
+                            <a href="/dispsolution#?wssmode=Maintain">
+                                Maintain Solution Codes
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a class="dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">Chemicals Codes<span class="caret"></span></a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li role="presentation">
+                            <a href="/addchemp#?wssmode=Add">
+                                Add Solution Codes
+                            </a> </li>
+                        <li role="presentation">
+                            <a href="/dispchemp#?wssmode=Maintain">
+                                Maintain Solution Codes
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+
+                <li class="dropdown">
+                    <a class="dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">Occupation Codes<span class="caret"></span></a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li role="presentation">
+                            <a href="/addoccupation#?wssmode=Add">
+                                Add Occupation Codes
+                            </a>
+                        </li>
+                        <li role="presentation">
+                            <a href="/dispoccupation#?wssmode=Maintain">
+                                Maintain Occupation Codes
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a class="dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">Duration Codes<span class="caret"></span></a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li role="presentation">
+                            <a href="/adduration#?wssmode=Add">
+                                Add Duration
+                            </a>
+                        </li>
+                        <li role="presentation">
+                            <a href="/dispduration#?wssmode=Maintain">
+                                Maintain Duration
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <br><br><br>
+        </div>
+        {{!--         </section> --}}
+    </div>
+    <div style="background-color:blue; width:10px"></div>
+
+    {{!-- menu for Utilties --}}
+    <div class="col-lg-3 col-md-6 col-sm-12">
+        {{!--         <section align='center' style="background-color:transparent; padding :0px; width:250px;"> --}}
+        <p style="background-color: firebrick; color:floralwhite; ">Utilties</p>
+        <img style="margin-top:-10px; padding:0em" src="images/dashboard/utillties.jpeg" width="250px" alt="Data Entry"
+            class="collapsible" />
+        <div align='left' class="content" width="100%" style="font-size :1.2em">
+            <ul>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">Staff<span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li role="presentation">
+                            <a href="/Register#?wssmode=Add">
+                                Add Staff
+                            </a>
+                        </li>
+                        <li role="presentation">
+                            <a href="/dispstaff#?wssmode=Maintain">
+                                Maintain Staff
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a class="dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">Template<span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li role="presentation">
+                            <a href="/addtemplate#?wssmode=Add">
+                                Add Template
+                            </a>
+                        </li>
+                        <li role="presentation">
+                            <a href="/disptemplate#?wssmode=Maintain">
+                                Maintain Template
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                {{!-- <li class="dropdown">
+                    <a class="dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">Project<span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li role="presentation">
+                            <a href="/addschedule#?wssmode=Add">
+                                Add Schedule
+                            </a>
+                        </li>
+                        <li role="presentation">
+                            <a href="/dispschedule#?wssmode=Maintain">
+                                Maintain Schedule
+                            </a>
+                        </li>
+                        <li role="presentation">
+                            <a href="/listschedule#?wssmode=Maintain">
+                                List Schedule
+                            </a>
+                        </li>
+                    </ul>
+                </li> --}}
+
+
+                {{!-- <li class="dropdown">
+                    <a class="dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">News<span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown"> --}}
+                <li role="presentation">
+                    <a href="/dispenquire#?wssmode=Maintain">
+                        display enquiry
+                    </a>
+                </li>
+
+                <li role="presentation">
+                    <a href="/dispschedule#?wssmode=Maintain">
+                        Maintain Schedule
+                    </a>
+                </li>
+                <li role="presentation">
+                    <a href="/dispschedule#?wssmode=Update">
+                        Update Job
+                    </a>
+                </li>
+                {{!-- <li role="presentation">
+                            <a href="/dispnews#?wssmode=Maintain">
+                                Maintain News
+                            </a>
+                        </li>
+                    </ul>
+                </li> --}}
+
+                {{!-- <li class="dropdown">
+                    <a class="dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">Banners<span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                        <li role="presentation">
+                            <a href="/addbanners#?wssmode=Add">
+                                Add Banners
+                            </a>
+                        </li>
+                        <li role="presentation">
+                            <a href="/dispbanners#?wssmode=Maintain">
+                                Maintain Banners
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a class="dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">Ref Badges<span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li role="presentation">
+                            <a href="/addrefbadge#?wssmode=Add">
+                                Add Ref Badges
+                            </a>
+                        </li>
+                        <li role="presentation">
+                            <a href="/disprefbadge#?wssmode=Maintain">
+                                Maintain Ref Badges
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li role="presentation">
+                    <a href="/dispmember#?wssmode=Maintain">
+                        Enquiries
+                    </a>
+                </li> --}}
+
+            </ul>
+            <br><br><br>
+        </div>
+        {{!--         </section> --}}
+    </div>
+
+
+</div>
+
+<script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+            }
+        });
+    }
+</script>

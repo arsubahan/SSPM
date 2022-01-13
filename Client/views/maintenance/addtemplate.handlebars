@@ -1,0 +1,51 @@
+<div class="container" ng-controller="templCtrl">
+    <div align='center' style='margin-top:-30px'>
+        <h3 class="page-header"><span ng-bind='wssmode'></span> of template Codes File</h3>
+    </div>
+
+    <form name="fldtyfrm" style=" font-size :smaller;padding-left:50px; margin-top:10px" method="get">
+        <div ng-if='success' ng-repeat='msg in errmsg' class="alert-success" style=" font-size :small; color:#123a16">
+            {{msg.msg}}
+            <span ng-bind='msg.msg'></span>
+        </div>
+
+        <div ng-if='errors' ng-repeat='msg in errmsg' class="alert-danger" style=" font-size :small; color:#5c0505">
+            {{msg.msg}}
+            <span ng-bind='msg.msg'></span>
+        </div>
+
+        <div class="form-control col-md-6">
+            <label>Ocupation Code:* :</label>
+            <input name="templcd" style="text-transform: uppercase;" ng-model="templdet.templatecd" ng-disabled="isDisabled"
+                type="text" />
+
+        </div>
+
+
+        <div class="form-control col-md-6">
+            <label>  Template name:* : </label>
+            <input name="templatename" ng-model="templdet.templatename" placeholder="Please Enter templ Description"
+                type="text" />
+
+        </div>
+
+         {{!-- <div class="form-control col-md-6"> --}}
+            <label>  Description:* : </label>
+            <text-angular name="templatedesc" ng-model="templdet.templatedesc" required></text-angular>
+      {{!--   </div> --}}
+
+        <div>
+            <button type="submit" class="btn btn-primary" ng-click="submitdat()"><span
+                    ng-bind='wssmode'></span>
+                    </button>
+            <a ng-if="wssmode != 'Add'" class="btn btn-primary" id="txtbackbut" href="/disptemplate#?wssmode=Maintain">
+                back
+            </a>
+            <a ng-if="wssmode == 'Add'" class="btn btn-primary" id="txtbackbut" href="/dashboard">
+                back
+            </a>
+
+        </div>
+
+    </form>
+</div>

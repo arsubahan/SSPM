@@ -1,0 +1,45 @@
+<div class="container" ng-controller="pestCtrl">
+    <div align='center' style='margin-top:-30px'>
+        <h3 class="page-header"><span ng-bind='wssmode'></span> of Pest Codes File</h3>
+    </div>
+
+    <form name="fldtyfrm"> {{!-- style=" font-size :smaller;padding-left:50px; margin-top:10px" method="post"> --}}
+        {{>toaster}}
+        <div class="form-control ">
+            <label>Pest Cd:* :</label>
+            <input name="pestcd" style="text-transform: uppercase;" ng-model="pestdet. pestcd" ng-disabled="isDisabled"
+                type="text" />
+
+        </div>
+
+
+        <div class="form-control ">
+            <label> Description:* : </label>
+            <input name="pesttype" ng-model="pestdet.pestdesc" placeholder="Please Enter Pest Description"
+                type="text" />
+
+        </div>
+
+        <div class="form-control " style="height:140px;">
+            <label style="vertical-align: top;">Remarks * :</label>
+            <textarea name="pestremarks" ng-model="pestdet.pestremarks" placeholder="Please Enter Pest Type"
+                type="text">
+            </textarea>
+
+        </div>
+
+        <div>
+
+            <button type="submit" class="btn btn-default" ng-click="submitdat()"><span
+                    ng-bind='wssmode'></span></button>
+            <a ng-if="wssmode != 'Add'" class="btn btn-default" id="txtbackbut" href="/disppestcode#?wssmode=Maintain">
+                back
+            </a>
+            <a ng-if="wssmode == 'Add'" class="btn btn-default" id="txtbackbut" href="/dashboard">
+                back
+            </a>
+
+        </div>
+
+    </form>
+</div>

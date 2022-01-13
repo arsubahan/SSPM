@@ -1,0 +1,181 @@
+<div class="container" ng-controller="enquireCtrl"> {{!-- controller at enquirecontroller --}}
+    <h1>Prepare Proposal of Enquiry File - <b><span ng-bind='usname'></span></b></h1>
+
+    <table style="font-size:9pt" style="height:1px">
+        <tr>
+            <td width="120px">
+                <label>Property Type<font color="red">*</font></label></td>
+            <td width="200px">
+                <span ng-if="enqlist.enqproptype == 'R'">Residential </span>
+                <span ng-if="enqlist.enqproptype == 'C'">Commercial </span>
+                <span ng-if="enqlist.enqproptype == 'F'"> Factory Sites </span>
+            </td>
+            <td width="80px">
+                <label>Enquiry Code<font color="red">*</font></label>
+            </td>
+            <td width="200px" align="left">
+                \{{enqlist.enqtrnsno}}
+
+            </td>
+        </tr>
+        <tr>
+            <td width="80px">
+                <label>Company Name<font color="red">*</font></label>
+            </td>
+            <td width="200px" align="left">
+                <span ng-bind="enqlist.enqconame"></span>
+            </td>
+            <td width="120px">
+                <label>Contact Person<font color="red">*</font></label></td>
+            <td width="200px" align="left">
+                \{{enqlist.enqcontactperson}}
+
+            </td>
+
+        </tr>
+
+        <tr>
+            <td width="100px">
+                <label style="vertical-align: top;">Address</label>
+            </td>
+            <td colspan="3">
+                \{{enqlist.enqaddress}}
+
+            </td>
+        </tr>
+
+        <tr>
+            <td width="100px">
+                <label> Contact No.<font color="red">*</font></label>
+            </td>
+            <td>
+                \{{enqlist.enqcontactno}}
+            <td width="100px">
+                <label>Email<font color="red">*</font></label>
+            </td>
+            <td>
+                \{{enqlist.enqemail}}
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <label>Remarks</label>
+            </td>
+            <td colspan="3">
+                \{{enqlist.enqremarks}}
+            </td>
+        </tr>
+
+    </table>
+    <div ng-controller="solutionCtrl">
+        <form style="width: 80%;" name="enqfrm">
+            {{>toaster}}
+            <table style="font-size:9pt" style="width : 100% ;padding: 15px;" cellpadding="5px">
+                {{!-- controller at enquirecontroller --}}
+                <tr>
+                    <td colspan="4" style="background-color:darkgreen;color:floralwhite; height:5px">
+                        <h7> Proposal For Premises : \{{enqlist.enqpremises}} </h7>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="120px" style="vertical-align: top;">
+                        <label>Proposal Title</label>
+                    </td>
+                    <td colspan="3">
+                        <input type="text" name="proptitle" ng-model="enqlist.proptitle" class="form-group "
+                            size="60px">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label width="80px">Duration</label>
+                    </td>
+                    <td>
+                        <select ng-model="enqlist.propduration " name='propduration'
+                            ng-options="opt.durcd  as opt.durdesc for opt in durlist ">
+                            <option>--</option>
+                        </select>
+                    </td>
+                    <td>
+                        Date start * :
+
+                        <input type="text" myDatePicker='' name="enqpropsdatest" id="enqpropsdatest"
+                            datepicker-popup="d MMM yyyy" ng-model="enqlist.enqpropsdatest"
+                            datepicker-options="dateOptions" size='10' ng-disabled="false" />
+
+                    </td>
+                    <td>
+                        Date start * :
+
+                        <input type="text" myDatePicker='' name="enqpropsdatend" id="enqpropsdatend"
+                            datepicker-popup="d MMM yyyy" ng-model="enqlist.enqpropsdatend"
+                            datepicker-options="dateOptions" size='10' ng-disabled="false" />
+
+                    </td>
+
+
+                </tr>
+            </table>
+
+            <table style="font-size:9pt" border="1" style="height:10px" width="500px">
+                <tr>
+                    <td>
+                        <label>Services Required - Please select the proposed solution below</label>
+                    </td>
+                </tr>
+                <tr ng-repeat="pestitm in pestype track by $index">
+                    <td>{{!--  height="20px"> --}}
+                        <p style="background-color: blanchedalmond;"><b>\{{pestype[$index].pestcd}} -
+                                \{{pestype[$index].pestdesc}}</b></p>
+                        <p>
+                        <ul>
+                            <li ng-if="solitm.solpestcd == pestitm.pestcd"
+                                ng-repeat="solitm in pestsollist track by $index">
+                                <input type="checkbox" ng-model="solitm.isSelected"
+                                    checklist-value=\{{solitm.soltrnsno}} ng-true-value="'1'" ng-false-value="'0'">
+                                <span style="background-color: darkseagreen;" ng-bind-html='solitm.soldesc'
+                                    style="margin-top:0px;  margin-bottom : 0px"></span>
+
+                                {{!-- \{{solitm.soltrnsno}} --}}
+                            </li>
+
+                        </ul>
+                    </td>
+                </tr>
+
+            </table>
+
+            <button
+                ng-if="enqlist.proptitle != ''  ||  enqlist.enqpropstatus == 'P' ||  enqlist.enqpropstatus == undefined "
+                type="submit" class="btn btn-primary" ng-click="submitsoldat()">
+                \{{wssmode}}
+            </button>
+
+            <a ng-if="enqlist.proptitle != ''  && enqlist.enqpropstatus == 'P' " class="btn btn-primary" id="txtbackbut"
+                href="/addquotation#?id=\{{enqlist._id}}">
+                Quotation
+            </a>
+
+            <a ng-if="enqlist.proptitle != ''  && quoteind == true  " class="btn btn-primary" id="txtbackbut"
+                href="/genproposal#?id=\{{enqlist._id}}">
+                Generate Proposal
+            </a>
+
+            <button ng-if="quoteind == true  && enqlist.enqpropstatus == 'P'" class="btn btn-primary" id="txtbackbut"
+                ng-click="accproposal()">
+                Accept Proposal
+            </button>
+
+            <a ng-if="wssmode != 'Add'" class="btn btn-primary" id="txtbackbut" href="/dispenquire#?wssmode=Maintain">
+                back
+            </a>
+
+            <a ng-if="wssmode == 'Add'" class="btn btn-primary" id="txtbackbut" href="/dashboard">
+                back
+            </a>
+
+
+        </form>
+    </div>
+</div>

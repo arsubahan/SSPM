@@ -1,0 +1,143 @@
+<div class="container" ng-controller="quoteCtrl">
+    <div align='center' style='margin-top:-30px'>
+        <h3 class="page-header"><span ng-bind='wssmode'></span> Quotation for Service for \{{enqlist.enqtrnsno}} at \{{enqlist.enqpremises}} </h3>
+    </div>
+
+    <form name="fldtyfrm" style=" font-size :smaller;padding-left:50px; margin-top:10px" method="get">
+        <div>
+            <toaster-container toaster-options="{'time-out': 3000, 'close-button':true}">
+            </toaster-container>
+        </div>
+        {{!-- <div ng-if='success' ng-repeat='msg in errmsg' class="alert-success" style=" font-size :small; color:#123a16">
+            {{msg.msg}}
+            <span ng-bind='msg.msg'></span>
+
+        </div> --}}
+
+        <div ng-if='errors' ng-repeat='msg in errmsg' class="alert-danger" style=" font-size :small; color:#5c0505">
+            {{msg.msg}}
+            <span ng-bind='msg.msg'></span>
+        </div>
+
+        {{!-- <div class="form-control" class="col-md-6"> ng-controller="pestCtrl" --}}
+
+        <table border ="1" style="font-size:9pt" style="height:1px">
+            <tr>
+                <td width="100px">
+                    <label>Property Type<font color="red">*</font></label></td>
+                <td width="200px">
+                    <span ng-if="enqlist.enqproptype == 'R'">Residential </span>
+                    <span ng-if="enqlist.enqproptype == 'C'">Commercial </span>
+                    <span ng-if="enqlist.enqproptype == 'F'"> Factory Sites </span>
+                </td>
+                <td width="80px">
+                    <label>Company<font color="red">*</font></label>
+                </td>
+                <td width="200px" align="left">
+                   <span ng-if="enqlist.enqproptype == 'R'" ng-bind="enqlist.enqconame" > </span> 
+                   
+                     
+                </td>
+            </tr>
+
+            <tr>
+                <td width="100px">
+                    <label style="vertical-align: top;">Name</label>
+                </td>
+                <td colspan="3">
+                    \{{enqlist.enqcontactperson}}
+
+                </td>
+            </tr>
+
+            <tr>
+                <td width="100px">
+                    <label> Contact No.<font color="red">*</font></label>
+                </td>
+                <td>
+                    \{{enqlist.enqcontactno}}
+                <td width="100px">
+                    <label>Email<font color="red">*</font></label>
+                </td>
+                <td>
+                    \{{enqlist.enqemail}}
+                </td>
+            </tr>
+        </table>
+        <form name="quotefrm">
+            <table style="font-size:9pt" style="height:1px">
+                <tr>
+                    <td colspan="3">
+                        <label>
+                            Description of Service
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <text-angular name="quodesc" ng-model="quodet.quodesc" required></text-angular>
+                    </td>
+                </tr>
+                <tr ng-if="quodet.quodesc != null">
+                    <td>
+                        <label>Frequency</label>
+                        {{!-- </td> --}}
+                        {{!-- <td> --}}
+                        <select ng-model="quodet.quofrequency " name='quofrequency'
+                            ng-options="opt.durcd  as opt.durdesc for opt in durlist ">
+                            <option>--</option>
+                        </select>
+                    </td>
+                    <td>
+                        <label>Amount: </label>
+                        <input type="text" name="amt" ng-model="quodet.quoamount">
+                    </td>
+
+                    <td>
+
+                        <button ng-if="quodet.quodesc != null" type="submit" class="btn btn-primary"
+                            ng-click="updquote()">
+                            <span> \{{editype}}</span>
+                        </button>
+                    </td>
+                </tr>
+            </table>
+
+            <table border="1">
+                <tr ng-repeat="quotearrdet in quotearr  | orderBy : 'quoseq' track by $index">
+                    <td width="20px">
+                        <span ng-if="quoseq == undefined" ng-bind="$index + 1"></span> &nbsp;
+                        <span ng-if="quoseq != undefined" ng-bind="quoseq"></span> &nbsp;
+                    </td>
+                    <td width="250px">
+                        <span ng-bind-html="quotearrdet.quodesc | limitTo: 30">....</span>
+                    </td>
+                    <td>
+                        \{{quotearrdet.quofrequency}}
+                    </td>
+                    <td> \{{quotearrdet.quoamount }}</td>
+                    <td width="50px"><button class="btn btn-danger" ng-click="delquote(quotearrdet)">Delete</button>
+                    </td>
+                    <td width="50px"><button class="btn btn-warning" ng-click="editquote(quotearrdet)">Edit</button>
+                    </td>
+                </tr>
+            </table>
+
+            <div>
+                <button ng-if="quotearr != ''" type="submit" class="btn btn-primary" ng-click="submitdat()">
+                    submit
+                </button>
+                <a ng-if="wssmode != 'Add'" class="btn btn-primary" id="txtbackbut"
+                    href="/proposal#?wssmode=Modify&id=\{{enqlist._id}}">
+                    back
+                </a>
+                <a ng-if="wssmode == 'Add'" class="btn btn-primary" id="txtbackbut" href="/dashboard">
+                    back
+                </a>
+
+            </div>
+
+
+        </form>
+
+</div>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<head>
+    <title>SSPM - Client</title>
+
+    {{>linkscript}}
+
+</head>
+
+{{>header}}
+
+<div id="collapsable-nav" class="collapse navbar-collapse" ng-controller="clientCtrl"
+    style="padding-left:0px; margin-top : 0px;   font-size: 0.9em">
+    <ul class="nav navbar-nav">
+        <li role="presentation">
+            <a href="/home">Home</a>
+        </li>
+        <li role="presentation">
+            <a href="/clienthome">
+                Client Home
+            </a>
+        </li>
+
+        <li role="presentation">
+            <a href="/clientprofile#?maintype=Modify&mainid=\{{clID}}">
+                Client Profile
+            </a>
+        </li>
+        <li role="presentation">
+
+            <a href="/clcontact#?&maintype=Add&mainid=\{{clID}}">
+                Request Service
+            </a>
+        </li>
+
+        <li role="presentation">
+            <a href="/clientrespassword#?&maintype=reset&mainid=\{{clID}}">
+                Change Password
+            </a>
+        </li>
+
+        {{!--        <li class="dropdown">
+            <a class="dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+                Past Project
+                <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown"  >
+                <li  ng-repeat="pastprojdet in pastlist track by $index">
+ 
+                    <a href="listfixh#?maintype=Local">
+                        {{pastprojdet}}
+                    </a>
+
+                    \{{pastprojdet.enqproptype}}
+                </li> --}}
+        {{!-- <li role="presentation">
+                    <a href="#">Overseas Fixture</a>
+                </li> 
+            </ul>
+        </li>--}}
+
+        {{!-- <li role="presentation">
+            <a href="/clientactivity#?maintype=view&mainid=\{{clID}}">
+                View Activities
+            </a>
+        </li> --}}
+        <li role="presentation">
+            <a href="/cllogout">Logout</a>
+        </li>
+
+</div>
+
+{{>logo}}
+
+{{#if success}}
+<div class="alert alert-success">{{message}}</div>
+{{/if}}
+{{#if error}}
+<div class="alert alert-danger">{{error}}</div>
+{{/if}}
+</div>
+{{{body}}}
+{{>footer}}
+</div>
+{{> getscript}}
+
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<div class="container" ng-controller="dashCtrl">
+
+    <h4>List of Pest Solution File - \{{usname}} (\{{uslogin}}) </h4>
+
+    {{!-- <flash-message duration="5000"></flash-message> --}}
+    <div id="myDIV" ng-controller="pestsolCtrl">
+        <dir-pagination-controls max-size="10" direction-links="true" boundary-links="true" style="margin-left :85px">
+        </dir-pagination-controls>
+
+
+
+        <table class="table" style="font-size:8pt">
+            <thead>
+                <tr>
+                    {{!-- <th width='80px'>Transaction No.:</th> --}}
+                    <th width='50px'>Pest Code</th>
+                    <th width='250px'>Solution Description</th>
+                    <th>Action</th>
+                    <th>&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    {{!-- <td><input class="form-control" ng-model="txtsearch.soltrnsno"></td> --}}
+                    <td><input class="form-control" ng-model="txtsearch.solpestcd "></td>
+                    <td><input class="form-control" ng-model="txtsearch.soldesc "></td>
+                    <td><button class="btn btn-primary" ng-click="solsearchdet(txtsearch)">Search</button></td>
+                </tr>
+
+
+                <tr dir-paginate-start="solrc in pestsollist  | orderBy:'solpestcd' | itemsPerPage:5">
+                    <td width='280px' colspan="3" style="background-color:rgb(248, 239, 198) ;"
+                        ng-if="pestsollist[$index] . solpestcd != pestsollist[$index -1].solpestcd">
+                        <b> \{{pestsollist[$index] . solpestcd | uppercase}} - \{{solrc.pestdet[0].pestdesc}} </b>
+                    </td>
+                </tr>
+                <tr dir-paginate-end style="background-color:transparent; cursor: pointer, z-index: 1; ">
+                    <td width="20px">\{{solrc. soltrnsno}}</td>
+                    <td width="250px" ng-bind-html='solrc.soldesc '></td>
+                    <td width="80px"><button class="btn btn-danger" ng-click="soldel(solrc._id)">Delete</button></td>
+                    <td width="50px"><button class="btn btn-warning" ng-click="soledit(solrc._id)">Edit</button></td>
+                </tr>
+            </tbody>
+        </table>
+        <dir-pagination-controls max-size="5" direction-links="true" boundary-links="true" style="margin-left :85px">
+        </dir-pagination-controls>
+    </div>
+</div>

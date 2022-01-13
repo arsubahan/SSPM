@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<!-- saved from url=(0054)http://run.plnkr.co/preview/ckfni7vd80007315vsmcym0g3/ -->
+<html ng-app="main" class="ng-scope"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide{display:none !important;}ng\:form{display:block;}</style>
+    <title></title>
+    <link href="./bootstrap.min.css" rel="stylesheet">
+    <link href="./toaster.css" rel="stylesheet">
+    <script src="./angular.min.js"></script>
+</head>
+    <body>
+    <div id="toast-container" ng-class="config.position" toaster-options="{&#39;time-out&#39;: 7000}" class="toast-top-right"><!-- ngRepeat: toaster in toasters --></div>
+        <div>
+            <div ng-controller="myController" class="ng-scope">
+                <button class="btn btn-primary" style="margin: 150px;" ng-click="pop()">Show toasts</button>
+            </div>
+        </div>
+
+        <script src="./toaster.js"></script>
+        <script src="./script.js"></script>
+    
+</body></html>

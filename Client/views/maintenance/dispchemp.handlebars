@@ -1,0 +1,47 @@
+<div class="container" ng-controller="dashCtrl">
+    
+    <h4>List of Pest Chemicals File - \{{usname}} (\{{uslogin}}) </h4>
+
+    {{!-- <flash-message duration="5000"></flash-message> --}}
+    <div id="myDIV" ng-controller="chempCtrl">
+        <dir-pagination-controls max-size="10" direction-links="true" boundary-links="true" style="margin-left :85px">
+        </dir-pagination-controls>
+
+
+
+        <table class="table" style="font-size:8pt">
+            <thead>
+                <tr>
+                    {{!-- <th width='80px'>Transaction No.:</th>- \{{usname}} (\{{uslogin}})  --}}
+                    <th width='50px'>Chemical Code</th>
+                    <th width='250px'>Chemical Name</th>
+                    <th width='250px'>Active Ingredient</th>
+                    <th>Action</th>
+                    <th>&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    {{!-- <td><input class="form-control" ng-model="txtsearch.soltrnsno"></td> --}}
+                    <td><input class="form-control" ng-model="txtsearch.chempcode "></td>
+                    <td><input class="form-control" ng-model="txtsearch.chempname "></td>
+                    <td><input class="form-control" ng-model="txtsearch.chempacting "></td>
+                    <td><button class="btn btn-primary" ng-click="searchdet(txtsearch)">Search</button></td>
+                </tr>
+
+
+               <tr dir-paginate="chemptyrc in chemplist  | orderBy:'chempname' | itemsPerPage:5">
+                    <td width='80px'>
+                        <span ng-bind="chemptyrc.chempcode | uppercase" ng-bind="chemptyrc.chempcode | uppercase"></span>
+                    </td>
+                    <td width="250px" ng-bind="chemptyrc.chempname "></td>
+                    <td width="250px" ng-bind="chemptyrc.chempacting "></td>
+                    <td width="50px"><button class="btn btn-danger" ng-click="del(chemptyrc._id)">Delete</button></td>
+                    <td width="50px"><button class="btn btn-warning" ng-click="edit(chemptyrc._id)">Edit</button></td>
+                </tr>
+            </tbody>
+        </table>
+        <dir-pagination-controls max-size="5" direction-links="true" boundary-links="true" style="margin-left :85px">
+        </dir-pagination-controls>
+    </div>
+</div>

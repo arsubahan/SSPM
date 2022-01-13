@@ -1,0 +1,120 @@
+<div class="container" ng-controller="projscheduleCtrl">
+    <div align='center' style='margin-top:-30px'>
+        <h3 class="page-header"><span ng-bind='wssmode'></span> of Schedule File</h3>
+    </div>
+
+    <form name="fldtyfrm" style=" font-size :smaller;padding-left:50px; margin-top:10px" method="get">
+        <div>
+            <toaster-container toaster-options="{'time-out': 3000, 'close-button':true}">
+            </toaster-container>
+        </div>
+
+        {{!-- <div ng-if='success' ng-repeat='msg in errmsg' class="alert-success" style=" font-size :small; color:#123a16">
+            {{msg.msg}}
+            <span ng-bind='msg.msg'></span>
+        </div> --}}
+
+        <div ng-if='errors' ng-repeat='msg in errmsg' class="alert-danger" style=" font-size :small; color:#5c0505">
+            {{msg.msg}}
+            <span ng-bind='msg.msg'></span>
+        </div>
+        <div align="center" style='margin-top:-25px'>
+            <h4> \{{enqlist.projtrnsno}} -\{{enqlist.enqconame}}
+                <br> \{{enqlist.proptitle}}</h4>
+            <h4> Premisses : \{{enqlist.enqaddress}}</h4>
+        </div>
+        <h5> Proposed Solution</h5>
+        <ul>
+            <li ng-repeat="pestsoldet in pestsollist" style="border:darkblue; background-color: blanchedalmond;">
+                <span ng-bind-html="pestsoldet.soldesc"></span>
+            </li>
+        </ul>
+
+        <table border="1">
+            <tr>
+                <td>
+                    <label>Date Start:* : \{{schdet.schdatest | date : "d MMM yyyy"}}</label>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <label>Date End:* : \{{schdet.schcompldate | date : "d MMM yyyy"}}</label>
+                </td>
+                {{!-- <td>
+                    <input type="text" myDatePicker='' name="schdatest" id="schdatest" datepicker-popup="d MMM yyyy"
+                        ng-model="schdet.schdatest" datepicker-options="dateOptions" size='10' ng-disabled="false" />
+                </td> --}}
+                {{!-- </tr>
+
+            <tr> --}}
+                {{!-- <td> --}}
+                {{!-- <label>Date End:* : \{{schdet.schcompldate | date : "d MMM yyyy"}}</label>
+                </td> --}}
+                {{!--                 <td>
+                    <input type="text" myDatePicker='' name="schcompldate" id="schcompldate"
+                        datepicker-popup="d MMM yyyy" ng-model="schdet.schcompldate" datepicker-options="dateOptions"
+                        size='10' ng-disabled="false" />
+                </td> --}}
+            </tr>
+            <tr>
+                <td style="vertical-align: top;">
+                    <label> Description:* : \{{schdet.schdesc}}</label>
+                </td>
+                {{!-- <td>
+                    <textarea name="schdesc" ng-model="schdet.schdesc"
+                        placeholder="Please Enter Description of work to do" type="text" cols="60" rows="4">
+            </textarea>
+
+                </td> --}}
+            </tr>
+            {{!--             <tr>
+                <td>
+                    <label> Personnel : </label>
+                </td>
+                <td>
+                    <select ng-model="schdet.schpersonnel" name='schpersonnel'
+                        ng-options="opt  as opt.UsStaffname for opt in stafflist " ng-click="addperson()">
+                        <option>-{{schdet.schpersonnel}}-</option>
+                    </select>
+            </tr> --}}
+            <tr>
+                <td style="vertical-align: top;">
+                    <label>Staff: </label>
+                    {{!-- </td>
+                <td> --}}
+                    <span ng-repeat="stseldet in staffselname">
+                        \{{stseldet}} &nbsp;&nbsp;
+                        {{!-- <button class="btn btn-danger" ng-click="delperson(stseldet)">Delete
+                        </button> --}}
+                    </span>
+                </td>
+                {{!-- <br>
+
+                </td>
+                </td> --}}
+            </tr>
+            <tr>
+                <td>
+                    <label>Report on Work:</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <text-angular name="schaction" ng-model="schdet.schaction" required></text-angular>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button type="submit" class="btn btn-primary" ng-click="submitrptdat()"><span
+                            ng-bind='wssmode'></span></button>
+                            
+                    <a ng-if="wvtype != undefined" class="btn btn-primary"  id="txtbackbut" href="/wvdispschedule#?wssmode=wv">
+                        back
+                    </a>
+                    <a ng-if="wvtype == undefined" class="btn btn-primary" id="txtbackbut" href="/dispschedule#?wssmode=Update">
+                        back
+                    </a> 
+
+                </td>
+            </tr>
+        </table>
+
+    </form>
+</div>

@@ -1,0 +1,641 @@
+﻿ body {
+  margin: 0;
+  background-color: #fff;
+} 
+
+/* For mobile phones: */
+[class*="col-"] {
+    width: 100%;
+  }
+
+/* start of public module*/
+.jumbotron{
+            /*margin-left:-10px;
+            margin-top:-10px;*/
+            height:auto;
+            max-width:100%;
+            position:relative;  
+            /*background-color:#557c3e;*/  
+        }
+        .jumbotron img{
+            height:100%;
+            width:auto;
+            max-width:100%;
+        }
+
+.container > div {
+    /* display: block; */
+    vertical-align: top;
+    font-size: 1em;
+    /*margin-left :500px;*/
+}
+
+.text {
+    width: 20%;
+}
+
+
+.container_cat {
+    display: flex;
+}
+
+.fixed {
+    width: 200px;
+}
+
+.flex-item {
+    flex-grow: 1;
+}
+
+div {
+   max-width: 100%;
+    height: auto;
+    background-size: 100% 100%;
+}
+
+
+.row {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display:         flex;
+    flex-wrap: wrap;
+  }
+  .row > [class*='col-'] {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .row:after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/*end of public module*/
+
+
+   /*Header area */
+    #header-nav {
+        background-color: #fff; /*bar colorwhen collapse*/
+        border-radius: 0px;
+        border: 0px;
+        /* height: 60px; raz*/
+    }
+
+    #collapsable-nav a { /* Collapsed nav menu text */
+        font-size: 0.9em;
+    }
+
+        #collapsable-nav a span { /* Collapsed nav menu glyph */
+            font-size: 1em;
+            /*margin-right: 5px;*/
+        }
+
+    /*menu box when small*/
+
+    .navbar-header button.navbar-toggle, .navbar-header .icon-bar {
+        border: 1px solid #557c3e;
+    }
+
+    .navbar-header button.navbar-toggle {
+        clear: both;
+        margin-top: 5px;
+    }
+
+    /*Tool bar config*/
+    /* Menu General Styles */
+    .menuBackground {
+        background: center;
+        text-align: left; /* or change the value to left to align left*/
+        float: left;
+    }
+
+    .dropDownMenu a {
+        background-color: #FFF;
+        color: #3F0C1F;
+    }
+
+    .dropDownMenu,
+    .dropDownMenu ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+        .dropDownMenu li {
+            position: relative;
+            color: #3F0C1F; /*raz #063821*/
+        }
+
+        .dropDownMenu a {
+            padding: 10px 20px;
+            display: list-item;
+            text-decoration: none;
+        }
+
+            .dropDownMenu a:hover {
+                background: none;
+                color: black;
+            }
+
+
+        /* Level 1 Drop Down Menu */
+        .dropDownMenu > li {
+            display: inline-block;
+            vertical-align: top;
+            margin-left: -4px; /* solve the 4 pixels spacing between list-items */
+        }
+
+            .dropDownMenu > li:first-child {
+                margin-left: 0;
+            }
+
+            .dropDownMenu > li > a {
+                padding: 10px 20px;
+                display: list-item;
+                text-decoration: none;            }
+
+                .dropDownMenu > li > a:hover {
+                    background: none;
+                    color: black;               }
+
+
+
+            /* Level 2 */
+            .dropDownMenu > li > ul {
+                text-align: left;
+                width: 250px; /* change auto value with 200px if you want a bigger menu */
+                display: none;
+                background: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                z-index: 9999999; /* if you have YouTube iframes, is good to have a bigger z-index so the video can appear above the video */
+            }
+
+            .dropDownMenu > li:hover > ul {
+                display: block;
+                background-color: #0c3410;
+            }
+
+        .dropDownMenu ul li a {
+            padding: 10px 20px;
+            display: list-item;
+            text-decoration: none;        }
+
+            .dropDownMenu ul li a:hover {
+                background: none;
+                color: black;
+                        }
+
+        /* Level 3 */
+        .dropDownMenu > li > ul > li > ul {
+            text-align: left;
+            display: none;
+            background: #E7B400;
+            position: absolute;
+            left: 100%;
+            top: 0;
+            z-index: 9999999;
+        }
+
+        .dropDownMenu > li > ul > li:hover > ul {
+            display: block;
+        }
+
+        .dropDownMenu ul ul li {
+            display: inline-block;
+            vertical-align: top;
+            margin-left: -4px; /* solve the 4 pixels spacing between list-items */
+               }
+
+            .dropDownMenu ul ul li a {
+                padding: 10px 20px;
+                display: list-item;
+                text-decoration: none;
+                       }
+
+                .dropDownMenu ul ul li a:hover { 
+                    background: none;
+                    color: black;
+                               }
+
+                               .dropdown-submenu {
+                                position: relative;
+                              }
+                              
+                              .dropdown-submenu .dropdown-menu {
+                                top: 0;
+                                left: 100%;
+                                margin-top: -1px;
+                              }
+
+    /*ENd of tool bar*/
+
+    /* for drop down at dashboard*/
+    .collapsible {
+        background-color:transparent ; /* #777; */
+        color:  white; 
+        cursor: pointer;
+        padding: 0px;
+        width: 100%;
+        border: none;
+        text-align: left;
+        outline: none;
+        font-size: 15px;
+      }
+      
+      .active, .collapsible:hover {
+        background-color:   #555; 
+      }
+      
+      .collapsible:after {
+        content: '\002B';
+        color: white;
+        font-weight: bold;
+        float: right;
+        margin-left: 5px;
+      }
+      
+      .active:after {
+        content: "\2212";
+      }
+      
+      .content {
+        padding: 0 18px;
+        max-height: 0; 
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+        background-color:  #f1f1f1; 
+      }
+
+
+      
+img.resize-35 {
+    /* display: inline-block; */
+    max-width:25%;
+   max-height:25%;
+     /* object-fit: contain;   */
+  }
+
+/* 
+img {
+max-width: 100%;
+height: auto;
+}
+
+p {
+    width: 100%;
+height: auto;
+} */
+
+#wrapper {
+    display: flex;
+  }
+  
+  #left {
+    flex: 0 0 35%;
+  }
+  
+  #right {
+    flex: 1;
+  }
+
+  /*textarea an input raz */
+  
+  
+
+  /*end of texarea and input raz */
+
+  
+@viewport {
+    width: device-width ;
+    zoom: 1.0 ;
+  }
+
+  @-ms-viewport {
+    width: device-width ;
+  }
+
+   textarea, div.textarea
+{
+   resize:none; /* vertical-auto request instead of the JS */
+   width:100%;
+   border:2px solid #00f;
+   overflow:hidden;
+   height:auto;
+   padding:3px;
+   margin:none;
+   box-sizing:border-box;
+   font-family:"Arial";
+   font-size:12px;
+   word-wrap:break-word;
+   white-space:pre-wrap;
+} 
+
+
+      
+ 
+/********** Medium devices only **********/
+@media only screen and  (min-width: 992px) {
+    /* Home Page */
+ 
+    #logo-img {
+        /* background: url("../../images/home/ermslogo.png") no-repeat; */
+        box-sizing: content-box;
+        width: 150px; 
+       /* height:100px; */
+        margin-top:-50px;
+    }
+
+    #img_1 {
+        /* background: url("../../images/home/image_1.png") no-repeat; */
+        width:75%; /*509px; */
+        margin-top: 0px;
+        margin-left: 30px;
+    }
+
+    #img_2 {
+        /* background: url("../../images/home/image_2.png") no-repeat; */
+
+        width:100%; /*425px; */
+        height:auto; /*567px; */
+        margin-top: 40px;
+        margin-left: 0px;
+        min-height:10px;
+    }
+
+    #img_3 {
+        /* background: url("../../images/home/image_3.png") no-repeat; */
+        width:100%; /*466px; */
+        height:auto; /*622px; */
+        margin-top: 80px;
+        margin-left: -290px;
+        min-height:10px;
+    } 
+
+    #img_4 {
+        /* background: url("../../images/home/image_4.png") no-repeat; */
+        width:100%; /*378; */
+        height:auto; /*504px; */
+        margin-top: 150px;
+        margin-left: -560px;
+        min-height:10px;
+    } 
+
+    #indextitle {
+       font-size: 2em;
+       margin-top: 0px;
+       margin-left:0px;
+    }
+
+    #indexnea {
+        font-size: 1 em;
+     }
+
+     /* #textarea_resize {
+            resize:none; /* vertical-auto request instead of the JS * /
+            width:80%;
+            border:2px solid #00f;
+            overflow:hidden;
+            height:auto;
+            padding:3px;
+            margin:none;
+            box-sizing:border-box;
+            font-family:"Arial";
+            font-size:12px;
+            word-wrap:break-word;
+            white-space:pre-wrap;         
+     } */
+
+    
+    /* End Home Page */
+}
+
+/********** tablet devices only **********/
+@media only screen and (max-width: 991px) {
+    .body{
+        display: block;
+        font-size:  1.3em;
+    }
+
+    /* Home Page */
+    #logo-img {
+        /* background: url("../../images/home/ermslogo.png") no-repeat; */
+        box-sizing: content-box;
+        width: 150px; 
+        height:56px; 
+       }
+
+    #img_1 {
+      /*   background-image: url("../../images/home/image_1.png") no-repeat; */
+        width:55%; 
+        height:auto;
+        margin-top: 50px;
+        margin-left: 0px;
+    }
+
+
+    #img_2 {
+        /* background: url("../../images/home/image_2.png") no-repeat; */
+
+        width:100%; /*425px; */
+        height:auto; /*567px; */
+        margin-top: 40px;
+        margin-left: 0px;
+        min-height:10px;
+    }
+
+    #img_3 {
+        /* background: url("../../images/home/image_3.png") no-repeat; */
+        width:100%; /*466px; */
+        height:auto; /*622px; */
+        margin-top: 80px;
+        margin-left: -210px;
+        min-height:10px;
+    } 
+
+    #img_4 {
+        /* background: url("../../images/home/image_4.png") no-repeat; */
+        width:100%; /*378; */
+        height:auto; /*504px; */
+        margin-top: 200px;
+        margin-left: -400px;
+        min-height:10px;
+    } 
+  
+
+    #indextitle {
+       font-size: 14px;
+    }
+
+    #indexnea {
+        font-size: 1em;
+     }
+
+     /* #textarea_resize {
+        resize:none; /* vertical-auto request instead of the JS * /
+        width:75%;
+        border:2px solid rgb(90, 6, 27);
+        overflow:hidden;
+        height:auto;
+        padding:3px;
+        margin:none;
+        box-sizing:border-box;
+        font-family:"Arial";
+        font-size:12px;
+        word-wrap:break-word;
+        white-space:pre-wrap;         
+ } */
+ 
+
+  
+    /* End Home Page */
+}
+
+/********** tablet devices only **********/
+@media only screen and (max-width: 767px) {
+    .body{
+        display: block;
+        font-size: 10px;
+    }
+
+    /* Home Page */
+    #logo-img {
+        /* background: url("../../images/home/ermslogo.png") no-repeat; */
+        box-sizing: content-box;
+        width: 0px; /* 75px; */
+        height:  0px; /*28px; */
+       }
+
+    #img_1 {
+       /* background-image: url("../../images/home/image_1.png") no-repeat; */
+        width:35%; 
+        height:auto;
+        margin-top: 50px;
+        margin-left: 30px;
+    }
+
+    
+    #img_2 {
+        /* background: url("../../images/home/image_2.png") no-repeat; */
+
+        width:25%; /*425px; */
+        height:auto; /*567px; */
+        margin-top: 00px;
+        margin-left: 0px;
+        /* min-height:10px; */
+    }
+
+    #img_3 {
+        /* background: url("../../images/home/image_3.png") no-repeat; */
+        width:25%; /*466px; */
+        height:auto; /*622px; */
+        margin-top: 0px;
+        margin-left: 0px;
+    /*     min-height:10px; */
+    } 
+
+    #img_4 {
+        /* background: url("../../images/home/image_4.png") no-repeat; */
+        width:25%; /*378; */
+        height:auto; /*504px; */
+        margin-top: 0px;
+        margin-left: 0px;
+        /* min-height:10px; */
+    } 
+
+    #indextitle {
+       font-size: 12px;
+    }
+
+    #indexnea {
+       font-size: 0px;
+     }
+
+     /* #textarea_resize {
+        resize:none; /* vertical-auto request instead of the JS * /
+        width:100%;
+        border:2px solid rgb(10, 230, 28);
+        overflow:hidden;
+        height:auto;
+        padding:3px;
+        margin:none;
+        box-sizing:border-box;
+        font-family:"Arial";
+        font-size:12px;
+        word-wrap:break-word;
+        white-space:pre-wrap;         
+ } */
+    /* End Home Page */
+}
+
+/********** Extra small devices only **********/
+/*  @media only screen and (max-width: 474px) {
+      .body{
+        display: block;
+        font-size:  0.75em;
+    }
+    #logo-img {
+        /* background: url("../../images/home/ermslogo.png") no-repeat;  * /
+        box-sizing: content-box;
+        width: 75px; 
+        height:28px; 
+
+    }
+
+    #img_1 {
+       /*  background-image: url("../../images/home/image_1.png") no-repeat; * /
+        width:25%; 
+        height:auto;
+        margin-top: 50px;
+        margin-left: 30px;
+   }
+
+    #img_2 {
+        /* background: url("../../images/home/image_2.png") no-repeat; * /
+        width:25%; 
+        height:auto;
+        margin-top: 50px;
+        margin-left: 30px;    }
+
+    #img_3 {
+        /* background: url("../../images/home/image_3.png") no-repeat; * /
+        width:25%; 
+        height:auto;
+        margin-top: 50px;
+        margin-left: 30px;
+    } 
+
+    #img_4 {
+        /* background: url("../../images/home/image_4.png") no-repeat; * /
+        width:25%; 
+        height:auto;
+        margin-top: 50px;
+        margin-left: 30px;
+    } 
+
+    #indextitle {
+       text-size-adjust: 8px;
+    /* End Home Page * /
+    }
+   /*  .col-xxs-12 {
+        position: relative;
+        min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
+        float: left;
+        width: 100%;
+        font-size :0.5em;
+    } * /
+
+
+}  */
+
+ul.circle {list-style-type: circle;}
+ul.square {list-style-type: square;}
+ol.upper-roman {list-style-type: upper-roman;}
+ol.lower-roman {list-style-type: lower-roman;}
+ol.upper-alpha {list-style-type: upper-alpha;}
+ol.lower-alpha {list-style-type: lower-alpha;}

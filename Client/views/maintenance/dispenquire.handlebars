@@ -1,0 +1,49 @@
+<div class="container" ng-controller="dashCtrl">
+    
+    <h4>List of Enquiry File - \{{usname}} (\{{uslogin}}) </h4>
+
+    {{!-- <flash-message duration="5000"></flash-message> --}}
+     <div id="myDIV" ng-controller="enquireCtrl">
+        <dir-pagination-controls max-size="5" direction-links="true" boundary-links="true" style="margin-left :85px">
+        </dir-pagination-controls>
+
+
+
+        <table class="table" style="font-size:8pt">
+            <thead>
+                <tr>
+                    <th width='80px'>Transaction No.:</th>
+                    <th width='250px'>company Name</th>
+                    <th width='250px'>Contact Person</th>
+                    <th>Action</th>
+                    <th>&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input class="form-control" ng-model="txtsearch.enqtrnsno"></td>
+                    <td><input class="form-control" ng-model="txtsearch.enqconame "></td>
+                   <td>
+                       <input class="form-control" ng-model="txtsearch.enqcontactperson ">
+                       <input type="hidden" class="form-control" ng-model="txtsearch.enqpropstatus" >
+                       </td>
+                    <td><button class="btn btn-primary" ng-click="searchdet(txtsearch)">Search</button></td>
+                </tr>
+
+
+                <tr dir-paginate="enqtyrc in enqlist  | orderBy:'enqname' | itemsPerPage:5">
+                    <td width='80px'>
+                        <span ng-bind="enqtyrc.enqtrnsno | uppercase" ng-bind="enqtyrc.enqtrnsno | uppercase"></span>
+                    </td>
+                    <td width="250px" ng-bind="enqtyrc.enqconame "></td>
+                    <td width="250px" ng-bind="enqtyrc.enqcontactperson "></td>
+                    <td width="50px"><button class="btn btn-danger" ng-click="del(enqtyrc._id)">Delete</button></td>
+                    <td width="50px"><button class="btn btn-warning" ng-click="edit(enqtyrc._id)">Edit</button></td>
+                </tr>
+            </tbody>
+        </table>
+        <dir-pagination-controls max-size="5" direction-links="true" boundary-links="true" style="margin-left :85px">
+        </dir-pagination-controls>
+    </div>
+</div>
+

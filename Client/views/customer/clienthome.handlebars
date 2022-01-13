@@ -1,0 +1,158 @@
+<div id="main-content" class="container" style=" margin-top: 0px; background-size: 100% 100%;" ng-controller="clientCtrl">
+    <p style="font-size: small; background-color:rgb(25, 68, 2);color:floralwhite">\{{clID}} - \{{clname}}</p>
+ 
+    <table style="font-size:9pt; background-color: rgb(231, 210, 125);  height:100px; width:70%" border="0" align="left">
+        <tr> {{!-- ng-if="cllist.clconame != undefined" --}}
+            <td width="100px">
+                <label style="vertical-align: top;">Company :</label>
+            </td>
+            <td colspan="3">
+                \{{cllist.clconame}}
+            </td>
+            <td>&nbsp;</td>
+
+        </tr>
+
+        <tr>
+            <td width="100px">
+                <label style="vertical-align: top;">Contact :</label>
+            </td>
+            <td colspan="3">
+                \{{cllist.clcontactperson}}
+
+            </td>
+        </tr>
+
+        <tr>
+            <td width="100px">
+                <label style="vertical-align: top;">Address :</label>
+            </td>
+            <td colspan="3">
+                \{{cllist.claddress}}
+
+            </td>
+
+
+        </tr>
+
+        <tr>
+            <td width="100px">
+                <label style="vertical-align: top;">Tel No. :</label>
+            </td>
+            <td>
+                \{{cllist.clcontactno}}
+
+            </td>
+
+            <td width="100px" align="right">
+                <label style="vertical-align: top;">Email :</label>
+            </td>
+            <td>
+                \{{cllist.clemail}}
+            </td>
+        </tr>
+    </table>
+ 
+    <table style="font-size:9pt; height:100px; width:30%" border="0">
+        <tr>
+            <td style="background-color: darkgreen;color:white; width:10%">
+                Past Project
+            </td>
+        </tr>
+        <tr>
+            <td style="width:80%">
+                <div id="mysagscroller" class="sagscroller col-sm-2" style="background-color:rgb(177, 241, 177); 
+                    border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-left-radius: 10px;
+                    border-bottom-right-radius: 10px; width:100%" ng-controller="pastprojCtrl">
+
+                    <marquee direction="up" scrollamount="2" height="95px" width="100%" onmouseover="this.stop();"
+                        onmouseout="this.start();">
+                        <ul>
+                            <li ng-repeat="touritem in pastlist"> {{!-- | orderBy: '-enqpropsdatcompl' "> --}}
+                                <div style="background-color :transparent ;">
+                                    <a href="/clientactivity#?projcode=\{{touritem.projtrnsno}}">
+                                        <font color="black" size=1>\{{pastlist[0].projtrnsno}}
+                                            </span>
+                                        </font>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </marquee>
+
+                </div>
+            </td>
+        </tr>
+    </table>
+
+    <p style="font-size: small; background-color:rgb(25, 68, 2);color:floralwhite">current contract - <span
+            ng-if="cllist.enqdet[0].enqpropstatus =='A'" ng-bind="cllist.enqdet[0].projtrnsno"></span>
+        <span ng-if="cllist.enqdet[0].enqpropstatus !='A'">No Current Project</span>
+    </p>
+    {{!-- 
+            <h4>current contract - \{{cllist.enqdet[0].enqpropstatus}}</h4>  --}}
+    <table style="font-size:9pt" border="1" style="height:10px" ng-if="cllist.enqdet[0].enqpropstatus =='A'">
+        <tr>
+            <td colspan="4">
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Services proposed </label>
+            </td>
+        </tr>
+        <tr ng-repeat="pestitm in pestype track by $index">
+            <td>{{!--  height="20px"> --}}
+                <p style="background-color: blanchedalmond;"><b>\{{pestype[$index].pestcd}} -
+                        \{{pestype[$index].pestdesc}}</b></p>
+                <p>
+                <ul>
+                    <li ng-if="solitm.solpestcd == pestitm.pestcd" ng-repeat="solitm in solutionarr track by $index">
+
+                        <span style="background-color: darkseagreen;" ng-bind-html='solitm.soldesc'
+                            style="margin-top:0px;  margin-bottom : 0px"></span>
+                    </li>
+
+                </ul>
+            </td>
+        </tr>
+    </table>
+
+    <div ng-if="cllist.enqdet[0].enqpropstatus =='A'" ng-controller="getSrc">
+
+        <p style="font-size: small; background-color:rgb(25, 68, 2);color:floralwhite">Schedules and report</p>
+
+
+        <table align="left" border="1" style="font-size: 10px; width:20%">
+
+            <tr ng-repeat="schdet in cllist.projdet ">
+                {{!-- <td>
+                        <label>Date Start:* :</label>
+                    </td> --}}
+                <td>
+                    <button class="text-nowrap" ng-click="getschframe(schdet._id)" target="schframe">
+                        {{!--                                 <u>{{schlst.schdate | date: 'dd MMM yyyy'}}</u> --}}
+                        <u><span ng-bind="schdet.schdatest | date: 'dd MMM yyyy' "></span> </u>
+                    </button>
+
+                </td>
+
+            </tr>
+        </table>
+        <table border="1" style="font-size: 10px;width:80%">
+            <tr>
+                <td>
+                    <iframe id="schframe" name="schframe" ng-model="schframe"
+                        style="background-color:transparent; width:80%; height:300px; margin-top:0px; margin-left:0px"
+                        frameborder="1" ng-src="\{{trustSrc(schdethtml.src)}}">
+                        Your browser does not support inline frames or is currently configured
+                        not to display inline frames.
+
+                    </iframe>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+</div> {{!-- end of main div --}}

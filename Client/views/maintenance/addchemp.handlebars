@@ -1,0 +1,104 @@
+<div class="container" ng-controller="chempCtrl">
+    <div align='center' style='margin-top:-30px'>
+        <h3 class="page-header"><span ng-bind='wssmode'></span> of Chemicals Codes File</h3>
+    </div>
+
+
+    <form name="fldtyfrm" style=" font-size :smaller;padding-left:50px; margin-top:10px" method="get">
+        {{>toaster}}
+
+            <table border="1" style="font-size:9pt; height:1px; padding:0.4em">
+                <tr>
+                    <td width="110px" align="right">
+                        <label>Chemical Code  :</label>
+                    </td>
+                    <td align="left" width="120px">
+                        <input class="form-control" name="chempcode" style="text-transform: uppercase;" ng-model="chempdet.chempcode"
+                            ng-disabled="isDisabled" type="text" />
+                    </td>
+                    <td width="110px" align="right">
+                        <label> Chemical Name<font color="red">*</font> : </label>
+                    </td>
+                    <td width="250px">
+                        <input class="form-control" name="chempname" ng-model="chempdet.chempname" placeholder="Please Enter Chemical Name"
+                            type="text" />
+                    </td>
+                </tr>
+                <tr>
+                     <td width="110px" align="right">
+                        <label> Active Ingredient<font color="red">*</font> : </label>
+                    </td>
+                    <td>
+                        <input class="form-control" name="chempacting" ng-model="chempdet.chempacting"
+                            placeholder="Please Enter Active ingredient" type="text" />
+                    </td>
+                    <td align="right">
+                        <label> Quantity in-stock:<font color="red">*</font> : </label>
+                    </td>
+                    <td>
+                        <input name="chempinstock" ng-model="chempdet.chempinstock"
+                            placeholder="Please Enter stock quantity" type="text" />
+                    </td>
+
+                </tr>
+                <tr>
+                     <td width="110px" align="left">
+                        <label><u> Chemical Profile<font color="red">*</font> : </u></label>
+                    </td>
+                    <td width="50px" align="left">
+                        <label> UOM * : </label>
+                        {{!-- <select ng-model="chempdet.chempuom " name='chempuom'
+                            ng-options="opt.UOMCD  as opt.UOMDESC for opt in uomlist">
+                            <option>--</option>
+                        </select> --}}
+                        <input name = "chempuom" ng-model = "chempdet.chempuom">
+                    </td>
+                    <td align="right">
+                        <label> Cost Price$<font color="red">*</font> : </label>
+                    </td>
+                    <td>
+                        <input class="form-control" name="chempcost" ng-model="chempdet.chempcost" placeholder="Please EnterCost price"
+                            type="text" />
+                    </td>
+
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <text-angular name="chempdesc" ng-model="chempdet.chempdesc" required></text-angular>
+
+                    </td>
+                </tr>
+
+                <tr >
+                    <td colspan="4">
+                        <div ng-repeat-start="pestitm in pestlist track by $index" class="clearfix"
+                            ng-if="$index % 3 == 0" style="background-color:rgb(143, 85, 10);">
+                        </div>
+                        <div ng-repeat-end class="col-sm-4 bg-danger"
+                            style="background-color:rgb(241, 235, 150); cursor: pointer, z-index: 1; ">
+
+                            <input type="checkbox" ng-model="pestitm.isSelected" checklist-value="pestitm.pestcd"
+                                ng-true-value="'1'" ng-false-value="'0'"> \{{pestitm.pestdesc}}
+                        </div>
+
+                    </td>
+                </tr>
+
+            </table>
+
+            <div>
+                <button type="submit" class="btn btn-primary" ng-click="submitdat()"><span
+                        ng-bind='wssmode'></span></button>
+                <a ng-if="wssmode != 'Add'" class="btn btn-primary" id="txtbackbut" href="/dispchemp#?wssmode=Maintain">
+                    back
+                </a>
+                <a ng-if="wssmode == 'Add'" class="btn btn-primary" id="txtbackbut" href="/dashboard">
+                    back
+                </a>
+
+            </div>
+ 
+
+    </form>
+
+</div>

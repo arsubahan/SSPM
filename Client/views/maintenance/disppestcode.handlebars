@@ -1,0 +1,46 @@
+<div class="container" ng-controller="dashCtrl">
+    
+    <h4>Maintenance of Pest Codes File -  \{{usname}} (\{{uslogin}}) </h4>
+    
+    
+    <div id="myDIV" ng-controller="pestCtrl">
+        <dir-pagination-controls max-size="5" direction-links="true" boundary-links="true" style="margin-left :85px">
+        </dir-pagination-controls>
+
+
+
+        <table class="table" style="font-size:8pt">
+            <thead>
+                <tr>
+                    <th width='80px'>Pest  Cd:</th>
+                    <th width='250px'>Description</th>
+                    <th>Action</th>
+                    <th>&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input class="form-control" ng-model="txtsearch.pestcd"></td>
+                    <td><input class="form-control" ng-model="txtsearch.pestdesc "></td>
+                    <td><button class="btn btn-primary" ng-click="searchdet(txtsearch)">Search</button></td>
+                </tr>
+
+
+                <tr dir-paginate="pesttyrc in pestlist  | orderBy:'pestdesc' | itemsPerPage:5">
+                    <td width='80px'>
+                        <span ng-bind="pesttyrc.pestcd | uppercase" ng-bind="pesttyrc.pestcd | uppercase"></span>
+                    </td>
+                    <td width="250px" ng-bind="pesttyrc.pestdesc "></td>
+                    <td width="50px"><button class="btn btn-danger" ng-click="del(pesttyrc._id)">Delete</button></td>
+                    <td width="50px"><button class="btn btn-warning" ng-click="edit(pesttyrc._id)">Edit</button></td>
+                </tr>
+            </tbody>
+        </table>
+        <dir-pagination-controls max-size="5" direction-links="true" boundary-links="true" style="margin-left :85px">
+        </dir-pagination-controls>
+    </div>
+</div>
+
+
+
+  

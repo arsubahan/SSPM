@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<head>
+    <title>SSPM - Maintenance</title>
+
+    {{>linkscript}}
+
+</head>
+{{>header}}
+<div id="collapsable-nav" class="collapse navbar-collapse " style="background-color: transparent];">
+    <ul id="nav-list" class="nav navbar-nav navbar-left dropdown ">
+        <li role="presentation">
+            <a href="/">Home</a>
+        </li>
+        {{#if user}}
+        <li role="presentation">
+            <a href="/dashboard">
+                Dashboard
+            </a>
+        </li>
+
+ 
+
+        <li role="presentation">
+            <a href="/logout">
+                Logout
+            </a>
+        </li>
+        {{/if}}
+    </ul>
+
+</div>
+
+{{>logo}}
+
+
+{{#if success}}
+<div class="alert alert-success">{{message}}</div>
+{{/if}}
+{{#if error}}
+<div class="alert alert-danger">{{error}}</div>
+{{/if}}
+</div>
+{{{body}}}
+{{>footer}}
+</div>
+{{> getscript}}
+
+</body>
+
+</html>

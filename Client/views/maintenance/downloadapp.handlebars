@@ -1,0 +1,19 @@
+<div id="main-content" class="container"
+    style="background-color:transparent; margin-top: 0px; background-size: 100% 100%;" ng-controller="AppCtrl">
+    <form>
+        {{>toaster}}
+        <div align="center" style="background-color: darkgreen; color:lightsteelblue; align-content: center;">
+            <label>Downloadin App to Mobile</label>
+            <p> Please make sure you are running the site from your mobile phone to </p>
+            <button class="btn-default btn-primary" ng-click="startdw()">
+                <center>Start Download</center>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="btn-default btn-primary">
+                <a href='/home'> 
+                    back
+                </a>
+            </button>
+        </div>
+    </form>
+</div>
