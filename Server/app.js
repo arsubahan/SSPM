@@ -7,6 +7,7 @@ var
     session = require('express-session'),
     app = express(),
     path = require('path'),
+    port = process.env.PORT || 3050,
     // animate = require('angular-animate'),
 
     bodyParser = require('body-parser'),
@@ -237,8 +238,8 @@ db.once('open', startServer);
 
 // Start up the server
 function startServer() {
-    var server = app.listen(3050, function () {
-        var port = server.address().port;
+    var server = app.listen(port, function () {
+        // var port = server.address().port;
         console.log('Listening on port : ' + server.address().port);
-    })
+    }) // end for var server
 }
